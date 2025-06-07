@@ -1,0 +1,152 @@
+.profileperformance-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 1100px;
+  margin: 20px auto; /* Optional: center the whole container if it's inside another wrapper */
+  box-shadow: 0px 0px 10px #3e3e3e44;
+  padding: 20px;
+}
+.username-overallscore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.username-overallscore h2{
+  width: 400px;
+  padding: 20px;
+  
+}
+.profile-container {
+  max-width: 1000px;
+  margin: 30px auto; /* ✅ Remove auto left/right so parent flex handles centering */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  gap: 90px;
+  padding: 20px;
+}
+
+.quiz-container,
+.program-container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0px 0px 10px #3e3e3e44;
+  width: 450px;
+  gap: 20px;
+}
+.circle-progress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 20px;
+}
+
+.circular-chart {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 3.8;
+  stroke: #3b7cff;
+  stroke-linecap: round;
+  animation: progress 1s ease-in-out forwards;
+}
+
+@keyframes progress {
+  from {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.percentage {
+  fill: #333;
+  font-size: 0.5em;
+  text-anchor: middle;
+  dominant-baseline: central;
+  transform: rotate(90deg);
+}
+.text-quiz-acore {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  text-align: center;
+  font-size: 15px;
+  gap: 55px;
+  width: 150px;
+  bottom: 75px;
+  right: 15px;
+}
+.text-below {
+  font-size: 16px;
+}
+.text-submission {
+  font-size: 16px;
+}
+
+.quiz-domain-conatiner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 20px;
+  min-width: 220px;
+}
+
+.domain-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.domain-label {
+  flex: 1;
+  color: #444;
+}
+
+.domain-count {
+  font-weight: bold;
+  color: #222;
+}
+
+.loading {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 50px;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .summary-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .domain-breakdown {
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,123 @@
+/* Main signup wrapper */
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f8fa;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Container for image + form */
+.signup-container {
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Left image section */
+.signup-left {
+  flex: 1;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.signup-left img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Right signup form section */
+.signup-form-container {
+  flex: 1;
+  width: 400px;
+  height: auto;
+
+}
+
+.signup-form-container h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.signup-form-container p {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+/* Form inputs */
+.signup-form-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+}
+
+.signup-input {
+  width: 380px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.signup-input:focus {
+  border-color: #6366f1;
+}
+
+/* Submit button */
+.signup-submit-btn {
+  width: 410px;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  background-color: #6366f1;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-submit-btn:hover {
+  background-color: #4f46e5;
+}
+
+.signup-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error message */
+.signup-error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* Link to login */
+.signup-bottom-link {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.signup-bottom-link a {
+  color: #6366f1;
+  font-weight: 500;
+  text-decoration: none;
+}

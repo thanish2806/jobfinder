@@ -1,0 +1,9 @@
+.dasboard-profile-progress {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 0 auto;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

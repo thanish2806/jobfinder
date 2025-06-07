@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #0f172a; /* Dark slate */
+  --secondary-color: #2563eb; /* Blue-600 */
+  --bg-color: #f8fafc; /* light gray-blue */
+  --hover-color: #1e293b; /* Slate-800 */
+  --text-color: #334155; /* Slate-700 */
+  --white: #ffffff;
+}
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+/* Courselist.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+

@@ -1,0 +1,71 @@
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 12px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: none;
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+}
+
+.cta span {
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #4c4c4d;
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #4c4c4d;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: transform 0.3s ease, stroke 0.3s ease; /* Smooth stroke and transform */
+}
+
+.cta:hover:before {
+  width: 100%;
+  background: #636ae8;
+}
+
+.cta:hover span {
+  color: #ffffff; /* Change text color on hover */
+}
+
+.cta:hover svg {
+  transform: translateX(0); /* Slide icon right */
+}
+
+.cta:hover svg path,
+.cta:hover svg polyline {
+  stroke: #ffffff; /* Change icon stroke color on hover */
+}
+
+.cta:active {
+  transform: scale(0.95);
+}
+
+.lets-learn-button {
+  padding: 40px;
+}

@@ -1,0 +1,220 @@
+.my-profile {
+  color: #262626;
+  font-size: 32px;
+}
+
+.profile-banner {
+  position: relative;
+  height: 130px;
+  width: 370px;
+  border-top-left-radius: 15px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  max-height: 100vh;
+  max-width: 370px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: #111;
+  background-color: #f8f8ff;
+  box-shadow: 0px 0px 10px #3e3e3e44;
+}
+
+.profile-edit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar {
+  position: relative;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  padding: 2px;
+  background-color: white;
+  margin-top: 75px;
+}
+
+.username-div {
+  flex-grow: 1;
+  margin-top: 132px;
+}
+
+.user-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edit-button-div {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.edit-button {
+  all: unset;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 95px;
+  height: 27px;
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 15px;
+  font-weight: 600;
+  user-select: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  border: 2px solid white;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.profile-edit .edit-button {
+  vertical-align: middle;
+}
+
+.name-role {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.name-role input {
+  padding: 12px 16px;
+  border-radius: 2px;
+  background-color: #f0f4ff;
+  font-size: 16px;
+  max-width: 280px;
+  border: 1px solid #c8ccf2;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.name-role input:focus {
+  border-color: #636ae8;
+  box-shadow: 0 0 0 2px rgba(99, 106, 232, 0.2);
+  outline: none;
+}
+
+.user-profile-role {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0px 10px;
+  position: relative;
+  bottom: 130px;
+  min-width: 350px;
+}
+
+.user-role {
+  font-size: 20px;
+}
+
+.profile-scores {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-scores {
+  position: relative;
+  bottom: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.score,
+.level {
+  padding: 10px;
+  color: #030416;
+  height: 100px;
+  width: 130px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #0203211e;
+}
+
+.user-score-title,
+.user-level-title {
+  font-size: 21px;
+}
+
+.score-card {
+  position: relative;
+  bottom: 80px;
+}
+/* Overlay background */
+.edit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal container */
+.edit-modal {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  width: 320px;
+  max-width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Modal buttons container */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.edit-modal input[type="text"],
+.edit-modal input[type="file"] {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-modal button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-modal button:hover {
+  opacity: 0.9;
+}
+
+.edit-modal button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-modal button:last-child {
+  background-color: #ccc;
+}

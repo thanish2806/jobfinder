@@ -1,0 +1,144 @@
+/* Chatbot.css */
+
+.chatbot-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Soft gradient background */
+}
+
+.chatbot-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px; /* Limit width for better readability */
+  height: 450px;
+  background: #ffffff;
+  border-radius: 20px; /* More rounded corners */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow for a floating effect */
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.chatbot-card:hover {
+  transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+.chatbot-header {
+  background: linear-gradient(90deg, #636ae8, #4b52d2); /* Gradient header */
+  color: white;
+  padding: 16px 20px; /* Increased padding */
+  font-size: 1.4rem; /* Larger font for header */
+  font-weight: 700; /* Bolder font */
+  border-bottom: 2px solid #4b52d2; /* Bottom border for separation */
+  text-align: center; /* Centered text */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.chatbot-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+}
+
+.chat-message {
+  margin-bottom: 12px;
+  max-width: 80%;
+  padding: 12px 16px; /* Increased padding */
+  border-radius: 12px; /* More rounded corners */
+  line-height: 1.5; /* Improved line height */
+  white-space: pre-line;
+  position: relative; /* For pseudo-elements */
+  transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.chat-message.user {
+  background-color: #d1e7ff;
+  align-self: flex-end;
+  text-align: right;
+  border-top-right-radius: 0; /* Remove top right corner radius */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for user messages */
+}
+
+.chat-message.bot {
+  background-color: #eaeaea;
+  align-self: flex-start;
+  border-top-left-radius: 0; /* Remove top left corner radius */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for bot messages */
+}
+
+.chat-message.typing {
+  font-style: italic;
+  color: gray;
+}
+
+.step-label {
+  font-weight: bold;
+  color: #4b4b4b;
+}
+
+.bot-answer {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #222;
+}
+
+.chatbot-footer {
+  display: flex;
+  padding: 12px;
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+}
+
+.chatbot-input {
+  flex: 1;
+  padding: 12px 14px; /* Increased padding */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem; /* Slightly larger font */
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease; /* Smooth border transition */
+}
+
+.chatbot-input:focus {
+  border-color: #636ae8; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(99, 106, 232, 0.5); /* Glow effect on focus */
+}
+
+.chatbot-send {
+  margin-left: 10px;
+  padding: 12px 18px; /* Increased padding */
+  background: linear-gradient(90deg, #636ae8, #4b52d2); /* Gradient button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600; /* Bolder font */
+  transition: background 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.chatbot-send:hover {
+  background: linear-gradient(90deg, #4b52d2, #636ae8); /* Reverse gradient on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.chatbot-send:active {
+  transform: translateY(0); /* Reset lift effect on click */
+}
+
+/* Add a stylish icon */
+.chatbot-icon {
+  width: 24px; /* Adjust icon size */
+  height: 24px;
+  margin-right: 8px; /* Space between icon and text */
+  transition: transform 0.3s ease; /* Smooth icon transition */
+}
+
+.chatbot-icon:hover {
+  transform: rotate(15deg); /* Rotate icon on hover */
+}

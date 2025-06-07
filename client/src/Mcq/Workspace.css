@@ -1,0 +1,148 @@
+/* Container */
+.lc-workspace {
+  background: #f5f6f7;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100vh;
+}
+
+/* Main split container */
+.lc-workspace__main {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  height: 100v;
+}
+
+/* Left panel - problem description */
+.lc-workspace__problem {
+  flex: 1;
+  width: 40%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Test case box */
+.lc-testcase {
+  border-radius: 5px;
+  padding: 12px 16px;
+}
+
+.lc-testcase__title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 22px;
+  color: #333;
+}
+
+.lc-testcase__content p {
+  margin: 6px 0;
+  font-size: 18px;
+  color: #555;
+  padding: 10px;
+}
+
+/* Button */
+.lc-btn {
+  margin-top: 24px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.lc-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.lc-btn--primary {
+  background-color: #4f46e5; /* Indigo-600 */
+  color: white;
+}
+
+.lc-btn--primary:hover:not(:disabled) {
+  background-color: #4338ca; /* Indigo-700 */
+}
+
+/* Output panel */
+.lc-output {
+  margin-top: 24px;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 16px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.lc-output h4 {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Success message */
+.lc-submitted-msg {
+  margin-top: 12px;
+  color: #10b981; /* green-500 */
+  font-weight: 700;
+}
+
+/* Right panel - code editor */
+.lc-workspace__editor {
+  flex: 1;
+  background: #2202f31b;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+/* Submitted code display */
+.lc-submitted-code {
+  margin-top: 24px;
+  background: #20232a;
+  padding: 12px;
+  border-radius: 6px;
+  color: #9da5b4;
+  font-family: monospace;
+  font-size: 0.85rem;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.lc-submitted-code h4 {
+  margin-bottom: 8px;
+  color: #61dafb;
+  font-weight: 600;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .lc-workspace__main {
+    flex-direction: column;
+  }
+
+  .lc-workspace__problem,
+  .lc-workspace__editor {
+    width: 100%;
+  }
+}

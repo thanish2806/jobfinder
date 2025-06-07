@@ -1,0 +1,141 @@
+/* Container for the whole login screen */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Box holding image and form */
+.auth-box {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Left side: Image */
+.auth-box.img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Right side: Form container */
+.form-container {
+  margin-left: 100px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Form styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+.login-form-input:focus{
+  border-color: #6366f1;
+}
+.auth-button,
+.google-btn {
+
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-button {
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  background-color: #6366f1;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.google-btn {
+  width: 410px;
+  font-size: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.google-btn img {
+  margin-right: 8px;
+}
+
+.auth-divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.auth-divider span {
+  background: #fff;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-divider::before {
+  content: "";
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.auth-error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.auth-footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: bold;
+}
+.auth-success {
+  color: green;
+  background-color: #eafae9;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}

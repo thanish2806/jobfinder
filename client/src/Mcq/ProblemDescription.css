@@ -1,0 +1,9 @@
+.problem-desc {
+  display: flex;
+  flex-direction: column;
+  max-height: 450px;
+}
+.problem-desc p{
+    padding: 20px;
+    font-size: 18px;
+}
