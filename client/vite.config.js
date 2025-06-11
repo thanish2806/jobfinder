@@ -9,5 +9,5 @@ export default defineConfig({
     },
     historyApiFallback: true, // ✅ Handles SPA routing
   },
-  base: '/',
+  base: '/skillnest/',
 });
