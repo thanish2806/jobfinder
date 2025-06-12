@@ -57,7 +57,7 @@ const App = () => {
   if (!isOnline) return <OfflinePage />;
 
   return (
-    <Router basename="/skillzone">
+    <Router>
       <Routes>
         {/* Auth */}
         <Route path="/" element={<Login />} />
