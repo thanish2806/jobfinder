@@ -57,7 +57,7 @@ const App = () => {
   if (!isOnline) return <OfflinePage />;
 
   return (
-    <Router>
+    <Router basename="/skillzone">
       <Routes>
         {/* Auth */}
         <Route path="/" element={<Login />} />
@@ -72,10 +72,13 @@ const App = () => {
         {/* Courses */}
         <Route path="/courses" element={<CoursesHome />} />
         <Route path="/html-css" element={<Htmlcss />} />
-        <Route path="/javascriptessentials" element={<Javascriptessentials />} />
+        <Route
+          path="/javascriptessentials"
+          element={<Javascriptessentials />}
+        />
         <Route path="/react-beginers" element={<Reactbeginer />} />
         <Route path="/node-express" element={<Nodex />} />
-        <Route path="/python" element={<Pythonc/>} />
+        <Route path="/python" element={<Pythonc />} />
         <Route path="/uiux" element={<Uiux />} />
         <Route path="/mongodb" element={<Mongo />} />
         <Route path="/fullstack" element={<Fullstack />} />
