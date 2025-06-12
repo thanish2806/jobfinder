@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import "./JobList.css";
+import "./Joblist.css";
 import Footer from "./components/Footer";
 import JobFilters from "./components/JobFilters";
 import Navbar from "./components/Navbar";
