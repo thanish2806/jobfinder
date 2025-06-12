@@ -1,5 +1,4 @@
 {
-  "homepage": "https://thanish2806.github.io/skillnest",
   "name": "client",
   "private": true,
   "version": "0.0.0",
@@ -7,11 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  
-},
+    "deploy": "gh-pages -d build"
+
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
