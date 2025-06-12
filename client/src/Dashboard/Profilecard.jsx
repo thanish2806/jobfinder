@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./ProfileCard.css";
+import "./Profilecard.css";
 import { auth, db, storage } from "../firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
