@@ -30,19 +30,16 @@ function Chat() {
   }, [chat]);
 
   const sendMessage = () => {
-    if (input.trim() !== '') {
-      setChat((prev) => [...prev, { sender: 'user', text: input }]);
-      socket.emit('userMessage', input);
-      setInput('');
-      setIsTyping(true);
+  if (input.trim() !== '') {
+    const message = input;
+    setChat((prev) => [...prev, { sender: 'user', text: message }]);
+    setInput('');
+    setIsTyping(true); // ✅ Show typing indicator immediately
 
-      // Simulate typing delay for the bot
-      setTimeout(() => {
-        setIsTyping(false);
-      }, 1000); // Adjust the delay as needed
-    }
-  };
-
+    // Emit the message to the server
+    socket.emit('userMessage', message);
+  }
+};
   return (
     <div className="chatbot-wrapper" role="dialog" aria-labelledby="chatbot-header" aria-describedby="chatbot-description">
       <div className="chatbot-card">

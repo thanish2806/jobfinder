@@ -40,7 +40,6 @@ import Workspace from "./Mcq/Workspace";
 import ProblemList from "./Mcq/ProblemList";
 import Quizque from "./Mcq/Quizque";
 import LandingPage from "./ResumeApp/pages/LandingPage";
-import ResumeProfile from "./ResumeApp/ResumeProfile";
 import Profile from "./ResumeApp/ResumeProfile";
 import Education from "./ResumeApp/Education";
 import Projects from "./ResumeApp/Projects";
@@ -57,7 +56,7 @@ const App = () => {
   if (!isOnline) return <OfflinePage />;
 
   return (
-    <Router basename="/skillzone">
+    <Router>
       <Routes>
         {/* Auth */}
         <Route path="/" element={<Login />} />

@@ -23,7 +23,7 @@ const Courses = () => {
       title: "Advanced JavaScript",
       description:
         "Deep dive into ES6+, async programming, and modern JS frameworks.",
-      path: "/advancedJS",
+      path: "/advanced-js",
     },
     {
       img: "/uiux.jpeg",
