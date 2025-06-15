@@ -31,7 +31,7 @@ const courses = [
     description: "Backend development with JavaScript.",
     duration: "3 Weeks",
     image: "node.png",
-    link: "/node - express",
+    link: "/node-express",
   },
   {
     title: "Python for Beginners",

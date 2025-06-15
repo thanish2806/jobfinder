@@ -26,7 +26,7 @@ const io = new Server(server, {
   'http://localhost:5173',
   'http://localhost:3000',
   'http://localhost:5174',
-  'https://jobfinder-frontend.onrender.com'
+  
 ],
 
     methods: ['GET', 'POST'],
@@ -39,8 +39,7 @@ app.use(cors({
   origin: [
   'http://localhost:5173',
   'http://localhost:3000',
-  'http://localhost:5174',
-'https://jobfinder-frontend.onrender.com'],
+  'http://localhost:5174',],
 
   methods: ['GET', 'POST'],
   credentials: true,

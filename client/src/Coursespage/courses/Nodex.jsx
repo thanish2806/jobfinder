@@ -242,7 +242,8 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    match: /.+\@.+\..+/
+    // eslint-disable-next-line no-useless-escape
+    match: /.+@.+..+/
   }
 });
 \`\`\`
