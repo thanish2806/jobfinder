@@ -7,7 +7,7 @@ import ErrorPage from "./components/ErrorPage";
 // All your route imports
 import Login from "./Login";
 import Signup from "./Signup";
-import JobList from "./joblist";
+import JobList from "./Joblist";
 import Home from "./homepage/home";
 import Dashboard from "./Dashboard/Dasnboard";
 import CoursesHome from "./Coursespage/CoursesHome";

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import "./JobList.css";
+import "./Joblist.css";
 import Footer from "./components/Footer";
 import JobFilters from "./components/JobFilters";
 import Navbar from "./components/Navbar";
@@ -36,7 +36,7 @@ const JobList = () => {
         date_posted: datePosted,
       };
 
-      const res = await axios.get("/api/jobs", { params });
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/jobs`, { params });
 
       const jobList = res.data?.jobs || [];
       const total = res.data?.total || jobList.length;
