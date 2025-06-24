@@ -9,11 +9,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import GoBackButton from "../components/GoBackButton";
 
-import {
-  collection,
-  addDoc,
-  getDocs
-} from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
@@ -32,7 +28,7 @@ function Quizque() {
   const { course, id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mcq/${course}/quiz/${id}`)
+    fetch(`${import.meta.env.VITE_API_URL}/mcq/${course}/quiz/${id}`)
       .then((res) => res.json())
       .then((data) => {
         const shuffled = [...data].sort(() => Math.random() - 0.5);
@@ -185,11 +181,21 @@ function Quizque() {
               </div>
 
               <div className="quizque-scorecard">
-                <p><b>Total Questions:</b> {totalQuestions}</p>
-                <p><b>Correct Answers:</b> {score}</p>
-                <p><b>Wrong Answers:</b> {wrongAnswers}</p>
-                <p><b>Percentage:</b> {percentage}%</p>
-                <p><b>Performance:</b> {statusMessage}</p>
+                <p>
+                  <b>Total Questions:</b> {totalQuestions}
+                </p>
+                <p>
+                  <b>Correct Answers:</b> {score}
+                </p>
+                <p>
+                  <b>Wrong Answers:</b> {wrongAnswers}
+                </p>
+                <p>
+                  <b>Percentage:</b> {percentage}%
+                </p>
+                <p>
+                  <b>Performance:</b> {statusMessage}
+                </p>
               </div>
 
               <div className="quizque-return-home-container">
