@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { auth, db } from "../firebase"; // 🔄 Import Firebase
+import { auth, db } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
 import Problem from "./Problem";
@@ -8,8 +8,9 @@ import Footer from "../components/Footer";
 
 const ProblemList = () => {
   const [problems, setProblems] = useState([]);
-  const [submittedProblems, setSubmittedProblems] = useState(new Set()); // ✅ Store submitted IDs
+  const [submittedProblems, setSubmittedProblems] = useState(new Set());
   const [_user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // ✅ New loading state
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (u) => {
@@ -18,6 +19,7 @@ const ProblemList = () => {
         fetchUserSubmissions(u.uid);
       } else {
         setUser(null);
+        setLoading(false); // Even if user is null, loading must stop
       }
     });
 
@@ -33,12 +35,14 @@ const ProblemList = () => {
       querySnapshot.forEach((doc) => {
         const data = doc.data();
         if (data.isSubmitted) {
-          submittedSet.add(doc.id); // doc.id = problemId
+          submittedSet.add(doc.id);
         }
       });
       setSubmittedProblems(submittedSet);
     } catch (err) {
       console.error("Error fetching user submissions:", err);
+    } finally {
+      setLoading(false); // ✅ Done loading submissions
     }
   };
 
@@ -62,6 +66,8 @@ const ProblemList = () => {
 
     fetchProblems();
   }, []);
+
+  if (loading) return <p style={{ padding: "20px" }}>Loading...</p>;
 
   return (
     <div>

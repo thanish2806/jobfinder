@@ -30,6 +30,17 @@ const Workspace = () => {
     java: 62,
   };
 
+  const getDefaultCode = (lang) => {
+    switch (lang) {
+      case "python":
+        return "# Write your code here...";
+      case "java":
+        return `// Write your code here...\npublic class Main {\n  public static void main(String[] args) {\n    // your code\n  }\n}`;
+      default:
+        return "// Write your code here...";
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (u) => setUser(u));
     return () => unsubscribe();
@@ -39,9 +50,7 @@ const Workspace = () => {
     async function fetchProblem() {
       try {
         const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-
         const res = await axios.get(`${BACKEND_URL}/problem/${problemId}`);
-
         setDetails(res.data);
 
         if (!user) return;
@@ -141,43 +150,46 @@ const Workspace = () => {
       else if (runtimeError) setOutput(`🟠 Runtime Error:\n${runtimeError}`);
       else {
         setOutput(resultOutput);
-        if (resultOutput === expected) {
+        const defaultCode = getDefaultCode(language).trim();
+
+        if (resultOutput === expected && code.trim() !== defaultCode) {
           toast.success("✅ Test case passed!");
           setIsSubmitted(true);
           setSubmittedCode(code);
+
           const problemRef = doc(db, "users", user.uid, "problems", problemId);
           const solutionRef = doc(db, "solutions", user.uid);
+
           await setDoc(
             problemRef,
             { isSubmitted: true, submittedCode: code },
             { merge: true }
           );
+
           await setDoc(
             solutionRef,
-            { [problemId]: { code, submittedAt: new Date().toISOString() } },
+            {
+              [problemId]: {
+                code,
+                submittedAt: new Date().toISOString(),
+              },
+            },
             { merge: true }
           );
-        } else
+        } else if (code.trim() === defaultCode) {
+          toast.warning("❗ Please write your own solution before submitting.");
+        } else {
           setOutput(
             `❌ Wrong Output:\nYour Output: ${resultOutput}\nExpected: ${expected}`
           );
+        }
       }
+
       setProcessing(false);
     } catch (err) {
       console.error("Error checking result:", err);
       setOutput("⚠️ Error while checking result.");
       setProcessing(false);
-    }
-  };
-
-  const getDefaultCode = (lang) => {
-    switch (lang) {
-      case "python":
-        return "# Write your code here...";
-      case "java":
-        return `// Write your code here...\npublic class Main {\n  public static void main(String[] args) {\n    // your code\n  }\n}`;
-      default:
-        return "// Write your code here...";
     }
   };
 
