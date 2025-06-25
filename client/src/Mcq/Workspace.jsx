@@ -38,7 +38,10 @@ const Workspace = () => {
   useEffect(() => {
     async function fetchProblem() {
       try {
-        const res = await axios.get(`http://localhost:5000/problem/${problemId}`);
+        const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+        const res = await axios.get(`${BACKEND_URL}/problem/${problemId}`);
+
         setDetails(res.data);
 
         if (!user) return;
@@ -126,7 +129,8 @@ const Workspace = () => {
         }
       );
 
-      if (res.data.status?.id <= 2) return setTimeout(() => checkStatus(token), 2000);
+      if (res.data.status?.id <= 2)
+        return setTimeout(() => checkStatus(token), 2000);
 
       const resultOutput = atob(res.data.stdout || "").trim();
       const compileError = atob(res.data.compile_output || "").trim();
@@ -143,9 +147,20 @@ const Workspace = () => {
           setSubmittedCode(code);
           const problemRef = doc(db, "users", user.uid, "problems", problemId);
           const solutionRef = doc(db, "solutions", user.uid);
-          await setDoc(problemRef, { isSubmitted: true, submittedCode: code }, { merge: true });
-          await setDoc(solutionRef, { [problemId]: { code, submittedAt: new Date().toISOString() } }, { merge: true });
-        } else setOutput(`❌ Wrong Output:\nYour Output: ${resultOutput}\nExpected: ${expected}`);
+          await setDoc(
+            problemRef,
+            { isSubmitted: true, submittedCode: code },
+            { merge: true }
+          );
+          await setDoc(
+            solutionRef,
+            { [problemId]: { code, submittedAt: new Date().toISOString() } },
+            { merge: true }
+          );
+        } else
+          setOutput(
+            `❌ Wrong Output:\nYour Output: ${resultOutput}\nExpected: ${expected}`
+          );
       }
       setProcessing(false);
     } catch (err) {
@@ -157,9 +172,12 @@ const Workspace = () => {
 
   const getDefaultCode = (lang) => {
     switch (lang) {
-      case "python": return "# Write your code here...";
-      case "java": return `// Write your code here...\npublic class Main {\n  public static void main(String[] args) {\n    // your code\n  }\n}`;
-      default: return "// Write your code here...";
+      case "python":
+        return "# Write your code here...";
+      case "java":
+        return `// Write your code here...\npublic class Main {\n  public static void main(String[] args) {\n    // your code\n  }\n}`;
+      default:
+        return "// Write your code here...";
     }
   };
 
@@ -184,8 +202,13 @@ const Workspace = () => {
             <div className="lc-testcase">
               <h4 className="lc-testcase__title">Test Case</h4>
               <div className="lc-testcase__content">
-                <p><strong>Input:</strong> {details.testcases[0].input}</p>
-                <p><strong>Expected Output:</strong> {details.testcases[0].output}</p>
+                <p>
+                  <strong>Input:</strong> {details.testcases[0].input}
+                </p>
+                <p>
+                  <strong>Expected Output:</strong>{" "}
+                  {details.testcases[0].output}
+                </p>
               </div>
             </div>
           )}
