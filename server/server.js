@@ -63,6 +63,7 @@ app.use('/problem/:id', problemsDetails);
 app.use('/stats', questionCount);
 app.use('/stats', problemStatsRoutes);
 
+
 // ✅ API Health Check
 app.get('/', (req, res) => {
   res.send('✅ API is running...');
@@ -73,7 +74,9 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 if (!OPENROUTER_API_KEY) {
   console.error('❌ OPENROUTER_API_KEY is missing in .env');
 }
-
+else{
+  console.log("✅ API KEY:", OPENROUTER_API_KEY); 
+}
 io.on('connection', (socket) => {
   console.log('✅ User connected:', socket.id);
 
@@ -99,7 +102,7 @@ io.on('connection', (socket) => {
       const response = await axios.post(
         'https://openrouter.ai/api/v1/chat/completions',
         {
-          model: 'qwen/qwen-2.5-7b-instruct:free',
+          model: 'qwen/qwen2.5-vl-72b-instruct:free',
           messages: prompt,
         },
         {
@@ -130,3 +133,4 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
+

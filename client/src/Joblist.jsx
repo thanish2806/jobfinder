@@ -36,7 +36,10 @@ const JobList = () => {
         date_posted: datePosted,
       };
 
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/jobs`, { params });
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/jobs`,
+        { params }
+      );
 
       const jobList = res.data?.jobs || [];
       const total = res.data?.total || jobList.length;

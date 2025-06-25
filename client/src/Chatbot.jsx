@@ -1,55 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import { io } from 'socket.io-client';
-import './Chatbot.css';
+import React, { useEffect, useState } from "react";
+import { io } from "socket.io-client";
+import "./Chatbot.css";
 
-const socket = io('https://jobfinder-backend-m3fz.onrender.com', {
-  transports: ['websocket'],
+const socket = io(import.meta.env.VITE_BACKEND_URL, {
+  transports: ["websocket"],
+  withCredentials: true,
 });
-
 function Chat() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [chat, setChat] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
     const handleBotReply = (message) => {
-      setChat((prev) => [...prev, { sender: 'bot', text: message }]);
+      setChat((prev) => [...prev, { sender: "bot", text: message }]);
       setIsTyping(false);
     };
 
-    socket.on('botReply', handleBotReply);
+    socket.on("botReply", handleBotReply);
 
     return () => {
-      socket.off('botReply', handleBotReply);
+      socket.off("botReply", handleBotReply);
     };
   }, []);
 
   useEffect(() => {
-    const chatBody = document.querySelector('.chatbot-body');
+    const chatBody = document.querySelector(".chatbot-body");
     if (chatBody) {
       chatBody.scrollTop = chatBody.scrollHeight;
     }
   }, [chat]);
-
   const sendMessage = () => {
-  if (input.trim() !== '') {
-    const message = input;
-    setChat((prev) => [...prev, { sender: 'user', text: message }]);
-    setInput('');
-    setIsTyping(true); // ✅ Show typing indicator immediately
+    if (input.trim() !== "") {
+      const message = input;
+      setChat((prev) => [...prev, { sender: "user", text: message }]);
+      setInput("");
+      setIsTyping(true); // ✅ Show typing indicator immediately
 
-    // Emit the message to the server
-    socket.emit('userMessage', message);
-  }
-};
+      // Emit the message to the server
+      socket.emit("userMessage", message);
+    }
+  };
   return (
-    <div className="chatbot-wrapper" role="dialog" aria-labelledby="chatbot-header" aria-describedby="chatbot-description">
+    <div
+      className="chatbot-wrapper"
+      role="dialog"
+      aria-labelledby="chatbot-header"
+      aria-describedby="chatbot-description"
+    >
       <div className="chatbot-card">
-        <div className="chatbot-header" id="chatbot-header">Skillnest Assistant</div>
+        <div className="chatbot-header" id="chatbot-header">
+          Skillnest Assistant
+        </div>
         <div className="chatbot-body" aria-live="polite">
           {chat.map((msg, index) => (
             <div key={index} className={`chat-message ${msg.sender}`}>
-              {msg.sender === 'bot' ? (
+              {msg.sender === "bot" ? (
                 msg.text.split(/(?=Step\s\d+:|Answer:)/).map((part, i) => {
                   if (/^Step\s\d+:/.test(part)) {
                     const match = part.match(/(Step\s\d+:)(.*)/s);
@@ -84,12 +90,18 @@ function Chat() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
             className="chatbot-input"
             placeholder="Ask a question..."
             aria-label="Type your message"
           />
-          <button onClick={sendMessage} className="chatbot-send" aria-label="Send message">Send</button>
+          <button
+            onClick={sendMessage}
+            className="chatbot-send"
+            aria-label="Send message"
+          >
+            Send
+          </button>
         </div>
       </div>
     </div>

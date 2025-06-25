@@ -46,7 +46,7 @@ const ProblemList = () => {
     const fetchProblems = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/problems`
+          `${import.meta.env.VITE_BACKEND_URL}/problems`
         );
 
         const data = await response.json();

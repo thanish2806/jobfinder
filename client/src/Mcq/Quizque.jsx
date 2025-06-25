@@ -28,7 +28,7 @@ function Quizque() {
   const { course, id } = useParams();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/mcq/${course}/quiz/${id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/mcq/${course}/quiz/${id}`)
       .then((res) => res.json())
       .then((data) => {
         const shuffled = [...data].sort(() => Math.random() - 0.5);
