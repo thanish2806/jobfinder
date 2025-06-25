@@ -9,11 +9,10 @@ const ProblemPage = () => {
   const [problem, setProblem] = useState(null);
   const [error, setError] = useState("");
 
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     axios
-      .get(`${BACKEND_URL}/api/problems/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/problem/${id}`)
       .then((res) => setProblem(res.data))
       .catch((err) => {
         console.error(err);
@@ -46,8 +45,8 @@ const ProblemPage = () => {
         <ul>
           {problem.examples?.map((ex, index) => (
             <li key={index}>
-              <strong>Input:</strong> {ex.input} |{" "}
-              <strong>Output:</strong> {ex.output}
+              <strong>Input:</strong> {ex.input} | <strong>Output:</strong>{" "}
+              {ex.output}
               {ex.explanation && (
                 <>
                   {" "}

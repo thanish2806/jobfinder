@@ -25,7 +25,6 @@ const io = new Server(server, {
     origin: [
   'http://localhost:5173',
   'http://localhost:3000',
-  'http://localhost:5174',
   'https://jobfinder-frontend.onrender.com'
 ],
 
@@ -39,7 +38,6 @@ app.use(cors({
   origin: [
   'http://localhost:5173',
   'http://localhost:3000',
-  'http://localhost:5174',
 'https://jobfinder-frontend.onrender.com'],
 
   methods: ['GET', 'POST'],
@@ -108,7 +106,7 @@ io.on('connection', (socket) => {
           headers: {
             'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
             'Content-Type': 'application/json',
-            'HTTP-Referer': 'http://localhost:3000',
+            'HTTP-Referer': process.env.FRONTEND_URL,
             'X-Title': 'Qwen Chatbot',
           },
         }
