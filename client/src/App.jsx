@@ -8,7 +8,7 @@ import ErrorPage from "./components/ErrorPage";
 import Login from "./Login";
 import Signup from "./Signup";
 import Home from "./homepage/home";
-import JobList from "./joblist";
+import JobList from "./Joblist";
 import Dashboard from "./Dashboard/Dasnboard";
 import CoursesHome from "./Coursespage/CoursesHome";
 import Htmlcss from "./Coursespage/courses/Htmlcss";
