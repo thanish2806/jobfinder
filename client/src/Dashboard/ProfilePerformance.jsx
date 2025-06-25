@@ -117,7 +117,9 @@ async function fetchSubmittedProblems(userId) {
 
 async function fetchTotalProblems() {
   try {
-    const response = await fetch("http://localhost:5000/stats/totalProblems");
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/stats/totalProblems`
+    );
     const data = await response.json();
     return data.total;
   } catch (error) {
@@ -129,7 +131,7 @@ async function fetchTotalProblems() {
 async function fetchTotalQuizQuestions() {
   try {
     const response = await fetch(
-      "http://localhost:5000/stats/totalQuizQuestions"
+      `${import.meta.env.VITE_BACKEND_URL}/stats/totalQuizQuestions`
     );
     const data = await response.json();
     return data.totalQuizQuestions;
@@ -163,7 +165,9 @@ const ProfilePerformance = () => {
 
           const attempts = await fetchUserQuizAttempts(firebaseUser.uid);
           const analyzed = analyzePerformance(attempts || []);
-          setPerformance(analyzed || { totalScore: 0, totalXP: 0, domainPerformance: [] });
+          setPerformance(
+            analyzed || { totalScore: 0, totalXP: 0, domainPerformance: [] }
+          );
 
           if (analyzed) {
             await setDoc(
@@ -176,11 +180,15 @@ const ProfilePerformance = () => {
             );
           }
 
-          const submittedProblems = await fetchSubmittedProblems(firebaseUser.uid);
-          setProblemStats(analyzeSubmittedProblems(submittedProblems || []) || {
-            totalCompleted: 0,
-            languageStats: [],
-          });
+          const submittedProblems = await fetchSubmittedProblems(
+            firebaseUser.uid
+          );
+          setProblemStats(
+            analyzeSubmittedProblems(submittedProblems || []) || {
+              totalCompleted: 0,
+              languageStats: [],
+            }
+          );
 
           const total = await fetchTotalProblems();
           const quizTotal = await fetchTotalQuizQuestions();
@@ -265,9 +273,7 @@ const ProfilePerformance = () => {
                         }}
                       ></span>
                       <span className="domain-label">{domain}</span>
-                      <span className="domain-count">
-                        {averagePercentage}%
-                      </span>
+                      <span className="domain-count">{averagePercentage}%</span>
                     </div>
                   );
                 }
