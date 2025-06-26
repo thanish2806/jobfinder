@@ -98,7 +98,7 @@ const CoursesList = () => {
                     }
                   }}
                 >
-                  Start Learning
+                  Take Test
                 </button>
               </div>
             ))
