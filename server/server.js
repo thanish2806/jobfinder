@@ -75,6 +75,7 @@ if (!OPENROUTER_API_KEY) {
   console.error('❌ OPENROUTER_API_KEY is missing in .env');
 }
 
+
 io.on('connection', (socket) => {
   console.log('✅ User connected:', socket.id);
 
