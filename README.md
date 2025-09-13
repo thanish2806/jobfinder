@@ -1,4 +1,4 @@
-SkillNest 🪺 – Job Finder Platform
+## SkillNest 🪺 – Job Finder Platform
 
 SkillNest is a modern job-finding web application that connects job seekers with opportunities tailored to their skills. Built with React, Node.js, and modern CSS, SkillNest offers a sleek interface, responsive design, and real-time search to help users find jobs faster.
 
