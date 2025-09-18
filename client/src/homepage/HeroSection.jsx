@@ -17,7 +17,9 @@ function HeroSection() {
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             const data = docSnap.data();
-            setDisplayName(data.displayName || currentUser.displayName || "Charm");
+            setDisplayName(
+              data.displayName || currentUser.displayName || "Charm"
+            );
           } else {
             setDisplayName(currentUser.displayName || "Charm");
           }
@@ -41,16 +43,14 @@ function HeroSection() {
 
   return (
     <section className="hero">
-      <h1 className="main-title-1">
-        Hello, <span>{displayName}</span>
-      </h1>
-
       <div className="hero-content">
         <h1 className="hero-title">
-          Empower Your Career with AI-Powered Learning & Job Discovery
+          <span className="title-explore">Unlock</span> Your Creative{" "}
+          <span className="title-explore">Potential.</span>
         </h1>
         <p className="hero-sub-title">
-          Learn in-demand skills, practice with quizzes, and land your dream job.
+          Learn in-demand skills, practice with quizzes, and land your dream
+          job.
         </p>
         <div className="hero-buttons">
           <button className="btn primary" onClick={handlemscq}>
@@ -61,11 +61,16 @@ function HeroSection() {
           </button>
         </div>
       </div>
-      <img
-        className="hero-img"
-        src="/hero-illustration.png"
-        alt="Learning Illustration"
-      />
+      <div className="hero-thumbnail">
+        <h1 className="main-title-1">
+          Welcome, <span className="title-explore">{displayName}</span>
+        </h1>
+        <img
+          className="hero-img"
+          src="/hero-illustration.png"
+          alt="Learning Illustration"
+        />
+      </div>
     </section>
   );
 }

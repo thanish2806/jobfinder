@@ -16,12 +16,11 @@ const Mcq = () => {
 
     return () => clearTimeout(timer);
   }, []);
-
+  if (loading) return <Loader />;
   return (
     <div className="mcq-main-container">
       <Navbar />
-
-      {loading ? <Loader /> : <Courseslist />}
+      <Courseslist />
       <Footer />
     </div>
   );

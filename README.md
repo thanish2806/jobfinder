@@ -8,11 +8,11 @@ SkillNest is a modern job-finding web application that connects job seekers with
 
 🧑‍💻 Skill Matching – Personalized suggestions based on entered skills.
 
+📄 Resume Builder – Create ATS-friendly resumes with pre-designed templates.
+
+🤖 Career Chatbot – AI-powered assistant for job search, interview prep, and career guidance.
+
 📱 Responsive UI – Optimized for desktop and mobile users.
-
-🌙 Dark/Light Mode – Accessible design with theme toggle.
-
-🗂️ Saved Jobs – Bookmark jobs for later.
 
 ⚡ Fast & Interactive – Powered by React + modern CSS animations.
 

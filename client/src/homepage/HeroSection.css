@@ -1,5 +1,5 @@
 .hero {
-  background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+  background: #f7f7f8;
   padding: 50px 1.5rem;
   display: flex;
   align-items: center;
@@ -16,13 +16,15 @@
 }
 
 .hero-title {
-  font-size: 32px;
+  font-family: Be Vietnam Pro, SemiBold, sans-serif;
+  font-size: 36px;
   color: #4b5563;
   margin-bottom: 1rem;
 }
 
 .hero-sub-title {
-  font-size: 22px;
+  font-family: Be Vietnam Pro, sans-serif;
+  font-size: 28px;
 }
 
 .hero-buttons {
@@ -62,14 +64,25 @@
 .secondary:hover {
   background-color: #f0f4ff;
 }
-
+.hero-thumbnail {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 1280px;
+  height: 649px;
+}
 .hero-img {
-  width: 850px;
-  margin: 37px;
+  height: 100%;
+  width: 1005;
+  margin: 0px;
+  object-fit: cover;
 }
 .main-title-1 {
-  margin: 0;
-  text-align: left;
-  font-size: 50px;
+  display: flex;
+  align-self: self-end;
+  font-family: Be Vietnam Pro, SemiBold, sans-serif;
+  letter-spacing: 1px;
+  font-size: 25px;
+  margin: 8px 0;
   z-index: 0;
 }
