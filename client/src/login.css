@@ -1,17 +1,17 @@
 /* Container for the whole login screen */
 .login-container {
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
 }
 
 /* Box holding image and form */
 .auth-box {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  max-width: 1100px;
-  margin: auto;
-  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -28,9 +28,21 @@
   padding: 15px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
-
+.form-container h2 {
+  padding: 15px 0;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+.form-container p {
+  padding: 15px 0;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 /* Form styling */
 .login-form {
   display: flex;
@@ -38,6 +50,10 @@
 }
 
 .login-form label {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   margin-top: 14px;
   margin-bottom: 14px;
   font-weight: bold;
@@ -46,18 +62,21 @@
 .login-form input {
   padding: 12px 14px;
   margin-bottom: 18px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   font-size: 15px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   outline: none;
   transition: border 0.3s ease;
 }
-.login-form-input:focus{
+.login-form-input:focus {
   border-color: #6366f1;
 }
 .auth-button,
 .google-btn {
-
   padding: 12px;
   border: none;
   border-radius: 8px;
