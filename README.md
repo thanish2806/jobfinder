@@ -27,7 +27,7 @@ Other Tools: Git, GitHub, VS Code.
 
 Clone the repo
 
-git clone https://github.com/thanish/jobfinder.git
+git clone https://github.com/thanish2806/jobfinder.git
 cd skillnest
 
 Install dependencies
@@ -46,5 +46,6 @@ npm run build
 
 Contributions, issues, and feature requests are welcome!
 Feel free to fork this repo and submit pull requests.
+
 
 
