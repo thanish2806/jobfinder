@@ -1,0 +1,77 @@
+/* Right side: Form container */
+
+.login-signup-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  background-color: #5596fe;
+  padding: 8px 10px;
+  border-radius: 50px;
+  align-items: center;
+}
+.login-signup-container:hover {
+  background-color: #5a99ff;
+  user-select: none;
+}
+.slider-box {
+  position: absolute;
+  height: 43px;
+  width: 93px;
+
+  left: 7px;
+  background-color: #417cdc;
+  box-shadow: 1px 1px 10px #1e73f2;
+  border-radius: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+
+.slider-box.login {
+ width: 93px;
+  transform: translateX(1%);
+  background: linear-gradient(to right, #3b82f6);
+  box-shadow: 1px 1px 10px #0045ac;
+}
+
+.slider-box.signup {
+  width: 110px;
+  transform: translateX(105%);
+  background: linear-gradient(to right, #3b82f6);
+  box-shadow: 1px 1px 10px #0045ac;
+}
+.login-butten-container,
+.signup-butten-container {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  border-radius: 30px;
+  padding: 10px 26px;
+  cursor: pointer;
+  font-family: "Yeon Sung", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  color: aliceblue;
+  letter-spacing: 0.5px;
+  z-index: 2; /* above slider */
+}
+.my-link {
+  color: #ffffff;       /* desired color */
+  text-decoration: none; /* remove underline if needed */
+}
+.login-butten-container:hover {
+  transform: scale(1.01);
+
+}
+.login-butten-container:active {
+  transform: scale(1.01);
+  background: linear-gradient(to right, #3b82f6);
+  box-shadow: 1px 1px 10px #0045ac inset;
+}
+.signup-butten-container:active{
+     transform: scale(1.01);
+      background: linear-gradient(to right, #3b82f6);
+  box-shadow: 1px 1px 10px #0045ac inset;
+}

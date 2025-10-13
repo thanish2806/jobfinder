@@ -1,0 +1,10 @@
+{
+	"files.autoSave": "afterDelay",
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.wordWrap": "on",
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.formatOnType": true,
+	"editor.formatOnSave": false
+}

@@ -4,9 +4,10 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "./firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./signup.css"; // Uses the style you provided
-
+import loginimg from "./assets/Images/Login-img.webp";
+import LoginSignupSlider from "./LoginSignUpSliderButton";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -64,23 +65,28 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-page">
+    <div className="signup-section">
       <div className="signup-container">
-        <div className="signup-left">
-          <img src="/programming.png" alt="Signup Visual" />
+        <div className="signup-image-conatiner">
+          <img
+            className="loginimg"
+            src={loginimg}
+            alt="img-illustration"
+            draggable
+          />
+          <h1 className="welcome-note">Welcome, Buddy</h1>
         </div>
 
         <div className="signup-form-container">
-          <h2>Create an Account</h2>
-          <p>Sign up to get started.</p>
+          <LoginSignupSlider />
 
           {error && <div className="signup-error">{error}</div>}
 
-          <form onSubmit={handleSignup}>
+          <form onSubmit={handleSignup} className="signup-form">
             <label>Email</label>
             <input
               type="email"
-              className="signup-input"
+              className="signup-form-input"
               placeholder="Enter your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -90,7 +96,7 @@ const Signup = () => {
             <label>Password</label>
             <input
               type="password"
-              className="signup-input"
+              className="signup-form-input"
               placeholder="Create Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -100,7 +106,7 @@ const Signup = () => {
             <label>Confirm Password</label>
             <input
               type="password"
-              className="signup-input"
+              className="signup-form-input"
               placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -109,15 +115,11 @@ const Signup = () => {
 
             <button
               type="submit"
-              className="signup-submit-btn"
+              className="signup-button"
               disabled={loading}
             >
               {loading ? "Creating..." : "Sign Up"}
             </button>
-
-            <p className="signup-bottom-link">
-              Already have an account? <a href="/login">Log In</a>
-            </p>
           </form>
         </div>
       </div>

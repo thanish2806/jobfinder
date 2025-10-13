@@ -10,7 +10,8 @@ import {
 import { auth } from "./firebase";
 import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
-
+import loginimg from "./assets/Images/Login-img.webp"
+import LoginSignupSlider from "./LoginSignUpSliderButton";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -119,12 +120,14 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="auth-box">
-        <img src="/programming.png" alt="Visual" />
-        <div className="form-container">
-          <h2>Login to Your Account</h2>
-          <p>Welcome back! Please enter your details.</p>
+    <div className="login-section">
+      <div className="login-container">
+        <div className="login-image-conatiner">
+          <img className="loginimg" src={loginimg} alt="img-illustration" draggable/>
+          <h1 className="welcome-note">Welcome, Buddy</h1>
+        </div>
+        <div className="login-form-container">
+         <LoginSignupSlider />
 
           {error && <div className="auth-error">{error}</div>}
           {message && <div className="auth-success">{message}</div>}
@@ -158,13 +161,9 @@ const Login = () => {
               Forgot Password?
             </p>
 
-            <button type="submit" className="auth-button" disabled={loading}>
+            <button type="submit" className="login-button" disabled={loading}>
               {loading ? "Logging in..." : "Login"}
             </button>
-
-            <div className="auth-divider">
-              <span>OR</span>
-            </div>
 
             <button
               type="button"
@@ -179,9 +178,7 @@ const Login = () => {
               {loading ? "Please wait..." : "Login with Google"}
             </button>
 
-            <p className="auth-footer">
-              Don’t have an account? <Link to="/signup">Sign Up</Link>
-            </p>
+           
           </form>
         </div>
       </div>

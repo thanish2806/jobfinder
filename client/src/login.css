@@ -1,56 +1,70 @@
 /* Container for the whole login screen */
-.login-container {
+.login-section {
   display: flex;
   height: 100dvh;
   width: 100%;
 }
-
-/* Box holding image and form */
-.auth-box {
+.login-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
-  overflow: hidden;
+  height: auto;
+
+}
+.login-image-conatiner {
+  user-select: none;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  height: 90%;
+  width: 35%;
+  overflow: hidden; /* prevent image overflow */
+  border-radius: 12px; /* optional - makes it look cleaner */
+  box-shadow: 0 1px 30px #33333364;
+  background-color: #444444;
 }
 
-/* Left side: Image */
-.auth-box.img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
+.loginimg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* make image fill container */
+  opacity: .7;
+  z-index: 0;
 }
+.welcome-note {
+  position: relative;
+  color: #eafae9;
+  margin: 30px;
+   font-family: "Black Han Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  z-index: 1;
+}
+/* Box holding image and form */
 
-/* Right side: Form container */
-.form-container {
-  margin-left: 100px;
+.login-form-container {
+  height: 90%;
+  width: 35%;
   padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-.form-container h2 {
-  padding: 15px 0;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-}
-.form-container p {
-  padding: 15px 0;
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  justify-content: space-around;
 }
 /* Form styling */
 .login-form {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  gap: 15px;
 }
 
 .login-form label {
-  font-family: "Outfit", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -60,12 +74,12 @@
 }
 
 .login-form input {
-  padding: 12px 14px;
-  margin-bottom: 18px;
-  font-family: "Outfit", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  padding: 12px 14px;
+  margin-bottom: 18px;
   font-size: 15px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
@@ -75,7 +89,15 @@
 .login-form-input:focus {
   border-color: #6366f1;
 }
-.auth-button,
+.forgot-password{
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  color: #060af3;
+}
+.login-button,
 .google-btn {
   padding: 12px;
   border: none;
@@ -85,7 +107,7 @@
   cursor: pointer;
 }
 
-.auth-button {
+.login-button {
   padding: 12px;
   font-size: 15px;
   border-radius: 8px;
@@ -98,7 +120,7 @@
 }
 
 .google-btn {
-  width: 410px;
+  padding: 12px;
   font-size: 15px;
   border-radius: 8px;
   font-weight: 600;
@@ -109,52 +131,52 @@
 }
 
 .google-btn img {
+  height: 26px;
+  width: 26px;
   margin-right: 8px;
 }
 
-.auth-divider {
-  text-align: center;
-  margin: 20px 0;
-  position: relative;
-}
 
-.auth-divider span {
-  background: #fff;
-  padding: 0 10px;
-  position: relative;
-  z-index: 1;
-}
-
-.auth-divider::before {
-  content: "";
-  height: 1px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  z-index: 0;
-}
 
 .auth-error {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   color: red;
-  font-size: 14px;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   margin-bottom: 10px;
 }
 
-.auth-footer {
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.auth-footer a {
-  color: #3b82f6;
-  text-decoration: none;
-  font-weight: bold;
-}
 .auth-success {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   color: green;
-  background-color: #eafae9;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 30px;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    width: 100%;
+  }
+  .login-image-conatiner{
+    display: none;
+  }
+  
+.login-form-container {
+  height: 90%;
+  width: 75%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 }
