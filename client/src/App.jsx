@@ -8,7 +8,6 @@ import ErrorPage from "./components/ErrorPage";
 import Login from "./Login";
 import Signup from "./Signup";
 import Home from "./homepage/home";
-import JobList from "./Joblist";
 import Dashboard from "./Dashboard/Dasnboard";
 import CoursesHome from "./Coursespage/CoursesHome";
 import Htmlcss from "./Coursespage/courses/Htmlcss";
@@ -49,6 +48,7 @@ import Templates from "./ResumeApp/pages/Templates";
 import Template1 from "./ResumeApp/ResumeTemplates/Template1";
 import Template2 from "./ResumeApp/ResumeTemplates/Template2";
 import ResumeLayout from "./ResumeApp/ResumeLayout";
+import JobList from "./joblist";
 
 const App = () => {
   const isOnline = useOnlineStatus();

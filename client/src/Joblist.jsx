@@ -24,36 +24,36 @@ const JobList = () => {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   const fetchJobs = useCallback(async () => {
-    setLoading(true);
-    setError("");
+  setLoading(true);
+  setError("");
 
-    try {
-      const params = {
-        query: query || "developer",
-        location: location !== "All" ? location : "chicago",
-        page: currentPage,
-        country: "us",
-        date_posted: datePosted,
-      };
+  try {
+    const params = {
+      query: query || "developer",
+      location: location !== "All" ? location : "chicago",
+      page: currentPage,
+      country: "us",
+      date_posted: datePosted,
+    };
 
-      const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/jobs`,
-        { params }
-      );
+    const res = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}/api/jobs`,
+      { params }
+    );
 
-      const jobList = res.data?.jobs || [];
-      const total = res.data?.total || jobList.length;
+    const jobList = res.data?.jobs || [];
+    const total = res.data?.total || jobList.length;
 
-      setJobs(jobList);
-      setFilteredJobs(jobList);
-      setTotalResults(total);
-    } catch (err) {
-      console.error("❌ Error fetching jobs:", err.message);
-      setError("Failed to fetch jobs. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  }, [location, currentPage, datePosted]); // <-- query removed here
+    setJobs(jobList);
+    setFilteredJobs(jobList);
+    setTotalResults(total);
+  } catch (err) {
+    console.error("❌ Error fetching jobs:", err.message);
+    setError("Failed to fetch jobs. Please try again later.");
+  } finally {
+    setLoading(false);
+  }
+}, [query, location, currentPage, datePosted]); // ✅ include query
 
   useEffect(() => {
     fetchJobs();
