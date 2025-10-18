@@ -47,7 +47,7 @@ import Templates from "./ResumeApp/pages/Templates";
 import Template1 from "./ResumeApp/ResumeTemplates/Template1";
 import Template2 from "./ResumeApp/ResumeTemplates/Template2";
 import ResumeLayout from "./ResumeApp/ResumeLayout";
-import JobList from "./joblist";
+import JobList from "./Joblist.jsx";
 
 const App = () => {
 
