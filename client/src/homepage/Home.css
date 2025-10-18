@@ -49,7 +49,10 @@
   transform: translateY(0);
   pointer-events: auto;
 }
-.home-container-1{
+.home-container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
 }

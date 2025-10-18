@@ -1,58 +1,86 @@
 .hero {
+  position: relative;
   background: #f7f7f8;
-  padding: 50px 1.5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   text-align: center;
+  height: 100dvh;
+  width: 100%;
 }
 
+.hero-section-bg{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(.8);
+  background: linear-gradient(to right, #12396c2f,#0189f9);
+  
+}
 .hero-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-  margin: 0 auto;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
 }
-
+.title-01{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  gap: 20px;
+  padding: 0 50px;
+}
+.title-02{
+  padding: 0 50px;
+}
 .hero-title {
   font-family: Be Vietnam Pro, SemiBold, sans-serif;
-  font-size: 36px;
-  color: #4b5563;
-  margin-bottom: 1rem;
+  width: 100%;padding: 0 30px;
+  font-size: 3.5rem;
+  color: #f2f2f2;
+  text-align: left;
 }
 
 .hero-sub-title {
-  font-family: Be Vietnam Pro, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #f2f2f2;
   font-size: 28px;
 }
 
 .hero-buttons {
+  height: fit-content;
+  width: 100%;
   margin: 25px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  /* ✅ remove margin-left */
+  z-index: 2;
 }
 
-.btn {
-  padding: 0.75rem 2rem;
-  border-radius: 0.75rem;
-  font-size: 1rem;
+.hero-btn {
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 1.122rem;
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
 }
 
 .primary {
-  background-color: #4f46e5;
+  background-color: #245fff;
   color: #ffffff;
 }
 
 .primary:hover {
-  background-color: #4338ca;
+  box-shadow: 1px 1px 10px #150876 inset;
+  background-color: #3121e6;
 }
 
 .secondary {
@@ -66,17 +94,9 @@
 }
 .hero-thumbnail {
   display: flex;
-  flex-direction: column;
   padding: 10px;
-  width: 1280px;
-  height: 649px;
 }
-.hero-img {
-  height: 100%;
-  width: 1005;
-  margin: 0px;
-  object-fit: cover;
-}
+
 .main-title-1 {
   display: flex;
   align-self: self-end;

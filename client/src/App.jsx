@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import useOnlineStatus from "./useOnlineStatus";
-import OfflinePage from "./components/OfflinePage";
+
 import ErrorPage from "./components/ErrorPage";
 
 // All your route imports
@@ -51,9 +50,7 @@ import ResumeLayout from "./ResumeApp/ResumeLayout";
 import JobList from "./joblist";
 
 const App = () => {
-  const isOnline = useOnlineStatus();
 
-  if (!isOnline) return <OfflinePage />;
 
   return (
     <Router>

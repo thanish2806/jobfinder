@@ -1,4 +1,5 @@
 .footer {
+  width: 100%;
     background-color: #000054; /* dark navy blue */
     color: #e0e0e0;
     padding: 2rem 1rem;
@@ -6,7 +7,7 @@
   }
   
   .footer-content {
-    max-width: 1000px;
+    width: 100%;
     margin: auto;
   }
   

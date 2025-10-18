@@ -1,12 +1,21 @@
 .courses-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  padding: 100px 0;
+  background-color: #f1f1f3;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
-
+.courses-title-container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .courses-title {
-  font-size: 35px;
+  font-size: 3rem;
   font-weight: 700;
   color: #0f1c4d;
   text-align: center;
@@ -17,20 +26,36 @@
   color: #636ae8;
   font-weight: bold;
 }
-
+.courses-description {
+  width: 80%;
+  font-size: 21px;
+  font-weight: 200;
+  color: #0f1c4d;
+  text-align: center;
+  margin-bottom: 40px;
+}
 .our-courses-section {
-  padding: 25px;
-  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items:center ;
+  justify-content: center;
   width: 100%;
 }
 
 .items-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
   gap: 30px;
+  padding: 30px 0;
 }
 
 .home-course-card {
+  width: 600px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   background: #fff;

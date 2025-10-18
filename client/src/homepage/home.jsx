@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
 import HeroSection from "./HeroSection";
 import Courses from "./Courses";
 import Chat from "../Chatbot";
@@ -30,8 +29,8 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Navbar />
-      <div className="home-container-2">
+     
+      <div className="home-container">
         <HeroSection />
         <Courses />
         <Resume />

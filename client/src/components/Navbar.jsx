@@ -87,7 +87,7 @@ const Navbar = () => {
         <div className="navbar-container">
           <Link to="/home" className="logo">
             <img src="/logo.png" alt="Logo" />
-            <span className="brand-name">SKILL NEST</span>
+            <p className="brand-name">SKILL NEST</p>
           </Link>
 
           <div className="desktop-links">

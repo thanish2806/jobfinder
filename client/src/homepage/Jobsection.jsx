@@ -4,7 +4,6 @@ import GetPlacedButton from "../components/Getplacedbuton";
 function Jobsection() {
   return (
     <div className="jobsection-container">
-      <div className="jobsection-wrap">
         <h1 className="jobsection-title">
           Find your
           <span className="title-latest"> new job </span> today
@@ -13,7 +12,6 @@ function Jobsection() {
           Discover the Right Job for You — Tailored to Your Skills and Goals.{" "}
         </p>
         <GetPlacedButton />
-      </div>
     </div>
   );
 }

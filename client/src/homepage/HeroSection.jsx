@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./HeroSection.css";
 import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
-
+import Herosectionbgshape from "../assets/Images/hero-illustration.png";
+import Navbar from "../components/Navbar";
 function HeroSection() {
   const navigate = useNavigate();
   const [displayName, setDisplayName] = useState("Charm");
@@ -25,7 +26,7 @@ function HeroSection() {
           }
         } catch (error) {
           console.error("Error fetching displayName:", error);
-          setDisplayName(currentUser.displayName || "Charm");
+          setDisplayName(currentUser.displayName || "Buddy");
         }
       }
     };
@@ -43,33 +44,35 @@ function HeroSection() {
 
   return (
     <section className="hero">
+      <Navbar />
+      <div className="hero-section-bg"></div>
       <div className="hero-content">
-        <h1 className="hero-title">
-          <span className="title-explore">Unlock</span> Your Creative{" "}
-          <span className="title-explore">Potential.</span>
-        </h1>
-        <p className="hero-sub-title">
-          Learn in-demand skills, practice with quizzes, and land your dream
-          job.
-        </p>
-        <div className="hero-buttons">
-          <button className="btn primary" onClick={handlemscq}>
-            Get Started
-          </button>
-          <button className="btn secondary" onClick={handlejobs}>
-            Browse Jobs
-          </button>
+        <div className="title-01">
+          <div className="hero-thumbnail">
+            <h1 className="main-title-1">
+              Welcome,<span className="title-explore">{" "}{displayName}</span>
+            </h1>
+          </div>
+        </div>
+        <div className="hero-title">
+          <h1><span className="title-explore">Unlock</span> Your Creative{" "}
+          <span className="title-explore">Potential.</span></h1>
+        </div>
+        <div className="title-02">
+          <p className="hero-sub-title">
+            Learn in-demand skills, practice with quizzes, and land your dream
+            job.
+          </p>
         </div>
       </div>
-      <div className="hero-thumbnail">
-        <h1 className="main-title-1">
-          Welcome, <span className="title-explore">{displayName}</span>
-        </h1>
-        <img
-          className="hero-img"
-          src="/hero-illustration.png"
-          alt="Learning Illustration"
-        />
+
+      <div className="hero-buttons">
+        <button className="hero-btn primary" onClick={handlemscq}>
+          Get Started
+        </button>
+        <button className="hero-btn secondary" onClick={handlejobs}>
+          Browse Jobs
+        </button>
       </div>
     </section>
   );

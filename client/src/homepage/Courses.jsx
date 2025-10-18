@@ -10,7 +10,7 @@ const Courses = () => {
       duration: "4 Weeks",
       level: "Beginner",
       author: "By John Smith",
-      title: "Web Design Fundamentals",
+      title: "Web Design",
       description:
         "Learn the fundamentals of web design including HTML, CSS, and design principles.",
       path: "/html-css",
@@ -40,7 +40,7 @@ const Courses = () => {
       duration: "5 Weeks",
       level: "Advanced",
       author: "By Alex Johnson",
-      title: "React & Redux Mastery",
+      title: "React & Redux",
       description:
         "Build scalable web apps using React and manage state with Redux effectively.",
       path: "/react-beginers",
@@ -69,15 +69,23 @@ const Courses = () => {
 
   return (
     <div className="courses-container">
-      <h1 className="courses-title">
-        <span className="title-explore">Explore </span>Courses
-      </h1>
+      <div className="courses-title-container">
+        <h1 className="courses-title">
+          <span className="title-explore">Explore </span>courses{" "}
+        </h1>
+        <h1 className="courses-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum
+          quos magni illum ad voluptas dolorem libero iure. Praesentium magnam
+          corrupti molestiae deleniti nihil, doloremque nemo ratione quae
+          voluptates possimus?
+        </h1>
+      </div>
 
       <div className="our-courses-section">
         <div className="items-container">
           {courseData.map((course, index) => (
             <div className="home-course-card" key={index}>
-              <img src={course.img} className="image" alt={course.title} />
+              <img src={course.img} className="image" alt={course.title} loading="lazy"/>
               <p className="text">
                 {course.duration} | {course.level}
               </p>

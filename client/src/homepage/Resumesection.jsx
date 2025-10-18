@@ -4,7 +4,6 @@ import "./Resumesection.css";
 function Resumesection() {
   return (
     <div className="resume-containter">
-      <div className="square">
         <h1 className="resume-title">
           Build a Job Winnning <span className="span-resume">Resume</span>
         </h1>
@@ -18,7 +17,6 @@ function Resumesection() {
           <img src="/template3.png" alt="template" />
         </div>
         <LetscreateButton />
-      </div>
     </div>
   );
 }
