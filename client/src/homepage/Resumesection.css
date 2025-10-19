@@ -1,5 +1,6 @@
 
 .resume-containter {
+  position: relative;
   height: fit-content;
   width: 90%;
   display: flex;
@@ -8,7 +9,22 @@
   padding: 50px;
   gap: 30px;
   background-color: #0a17ff74;
+  box-shadow: 1px 1px 20px #2222237b;
   border-radius: 35px;
+  margin: 30px;
+  overflow: hidden;
+}
+.blue-box{
+  position: absolute;
+  align-self: flex-end;
+  height: 600px;
+  bottom: 0px;
+  right: 250px;
+  width: 250px;
+  background-color: #636ae8;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  z-index: -2;
 }
 .resume-title {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

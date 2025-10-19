@@ -4,6 +4,7 @@ import "./Resumesection.css";
 function Resumesection() {
   return (
     <div className="resume-containter">
+      <div className="blue-box"></div>
         <h1 className="resume-title">
           Build a Job Winnning <span className="span-resume">Resume</span>
         </h1>
