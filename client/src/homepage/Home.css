@@ -54,5 +54,5 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  background: linear-gradient(to right, #69a2eedc,#E3F2FD);
 }

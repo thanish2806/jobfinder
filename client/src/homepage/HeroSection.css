@@ -16,7 +16,7 @@
   width: 100%;
   object-fit: cover;
   filter: brightness(.8);
-  background: linear-gradient(to right, #12396c2f,#0189f9);
+  background: linear-gradient(to right, #12396c2f,#788BFF);
   
 }
 .hero-content {

@@ -8,8 +8,8 @@
   flex-direction: column;
   padding: 50px;
   gap: 30px;
-  background-color: #0a17ff74;
-  box-shadow: 1px 1px 20px #2222237b;
+    background-color: #636AE8;
+  box-shadow: 1px 1px 20px #f0f0f87b;
   border-radius: 35px;
   margin: 30px;
   overflow: hidden;
@@ -21,10 +21,10 @@
   bottom: 0px;
   right: 250px;
   width: 250px;
-  background-color: #636ae8;
+  background-color: #878CED;
   border-top-left-radius: 200px;
   border-top-right-radius: 200px;
-  z-index: -2;
+  z-index: 0;
 }
 .resume-title {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

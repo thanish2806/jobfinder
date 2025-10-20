@@ -86,9 +86,9 @@ const Courses = () => {
           {courseData.map((course, index) => (
             <div className="home-course-card" key={index}>
               <img src={course.img} className="image" alt={course.title} loading="lazy"/>
-              <p className="text">
+              {/* <p className="text">
                 {course.duration} | {course.level}
-              </p>
+              </p> */}
               {/*<p className="name">{course.author}</p> */}
 
               <h3 className="heading">{course.title}</h3>

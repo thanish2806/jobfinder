@@ -6,7 +6,7 @@ function Resumesection() {
     <div className="resume-containter">
       <div className="blue-box"></div>
         <h1 className="resume-title">
-          Build a Job Winnning <span className="span-resume">Resume</span>
+          Build a Job Winnning Resume
         </h1>
         <p className="resume-subtitle">
           Replace your old resume in a few simple clicks. Our builder gives

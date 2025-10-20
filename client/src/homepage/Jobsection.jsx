@@ -10,7 +10,8 @@ function Jobsection() {
         </h1>
         <p className="jobsection-subtitle">
           Discover the Right Job for You — Tailored to Your Skills and Goals.{" "}
-        </p>
+      </p>
+      
         <GetPlacedButton />
     </div>
   );
