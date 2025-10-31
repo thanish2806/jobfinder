@@ -45,26 +45,6 @@ const Courses = () => {
         "Build scalable web apps using React and manage state with Redux effectively.",
       path: "/react-beginers",
     },
-    {
-      img: "/resdesign.png",
-      duration: "2 Weeks",
-      level: "Beginner",
-      author: "By Lisa Ray",
-      title: "Responsive Design",
-      description:
-        "Make websites look great on all devices with media queries and Flexbox.",
-      path: "/responsive-web-design",
-    },
-    {
-      img: "/nodejs.png",
-      duration: "4 Weeks",
-      level: "Intermediate",
-      author: "By Mark Lee",
-      title: "Node.js Essentials",
-      description:
-        "Get started with server-side JavaScript and build backend APIs using Node.js.",
-      path: "/node-express",
-    },
   ];
 
   return (
