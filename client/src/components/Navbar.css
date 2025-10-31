@@ -5,8 +5,7 @@
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: #42424221;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(21px);
   border-radius: 50px;
   margin: 10px 20px;
   z-index: 99999;

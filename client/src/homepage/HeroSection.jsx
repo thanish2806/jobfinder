@@ -45,18 +45,18 @@ function HeroSection() {
   return (
     <section className="hero">
       <Navbar />
-      <div className="hero-section-bg"></div>
+      <div className="hero-section-bg "></div>
       <div className="hero-content">
         <div className="title-01">
-          <div className="hero-thumbnail">
+          {/* <div className="hero-thumbnail">
             <h1 className="main-title-1">
-              Welcome,<span className="title-explore">{" "}{displayName}</span>
+              Welcome,<span className="title-explore">{" "}</span>
             </h1>
-          </div>
+          </div> */}
         </div>
         <div className="hero-title">
-          <h1><span className="title-explore">Unlock</span> Your Creative{" "}
-          <span className="title-explore">Potential.</span></h1>
+          <h1><span className="title-explore">Welcome</span> Back,{" "}
+          <span className="title-explore">{displayName}</span></h1>
         </div>
         <div className="title-02">
           <p className="hero-sub-title">
@@ -64,9 +64,7 @@ function HeroSection() {
             job.
           </p>
         </div>
-      </div>
-
-      <div className="hero-buttons">
+        <div className="hero-buttons">
         <button className="hero-btn primary" onClick={handlemscq}>
           Get Started
         </button>
@@ -74,6 +72,9 @@ function HeroSection() {
           Browse Jobs
         </button>
       </div>
+      </div>
+
+      
     </section>
   );
 }

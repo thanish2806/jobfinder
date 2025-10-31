@@ -1,6 +1,8 @@
 .hero {
   position: relative;
-  background: #f7f7f8;
+  background-image:
+                radial-gradient(at 20% 25%, hsla(181, 85%, 55%, 0.781) 0px, transparent 50%),
+                radial-gradient(at 80% 75%, hsla(258, 100%, 81%, 0.15) 0px, transparent 50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +32,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: left;
+  justify-content: center;
   gap: 20px;
   padding: 0 50px;
 }
@@ -38,16 +40,30 @@
   padding: 0 50px;
 }
 .hero-title {
-  font-family: Be Vietnam Pro, SemiBold, sans-serif;
-  width: 100%;padding: 0 30px;
-  font-size: 3.5rem;
-  color: #f2f2f2;
-  text-align: left;
+  width: 100%;
+  padding: 0 30px;
 }
+.hero-title h1{
+  font-size: 4rem;
 
+    font-family: Be Vietnam Pro, SemiBold, sans-serif;
+  /* 1. Apply the Gradient as a Background */
+  background-image: linear-gradient(90deg, #0099ff, #00baba); 
+
+  /* 2. Clip the Background to the Text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. Make the Text Color Transparent */
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback for transparency */
+
+  /* Ensure the element only takes up the space of the text */
+  display: inline-block;
+}
 .hero-sub-title {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #f2f2f2;
+  color: #0e6c7e;
   font-size: 28px;
 }
 
@@ -73,13 +89,14 @@
 }
 
 .primary {
-  background-color: #245fff;
+  background-color: #00CED1;
   color: #ffffff;
+  box-shadow: 1px 1px 50px #008b869c ;
 }
 
 .primary:hover {
-  box-shadow: 1px 1px 10px #150876 inset;
-  background-color: #3121e6;
+  box-shadow: 1px 1px 30px #008b86c0 ;
+  background-color: #00CED1;
 }
 
 .secondary {
