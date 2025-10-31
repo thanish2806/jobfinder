@@ -8,7 +8,9 @@
   flex-direction: column;
   padding: 50px;
   gap: 30px;
-    background-color: #636AE8;
+  background-image:
+                radial-gradient(at 20% 25%, hsla(181, 85%, 75%, 0.781) 0px, transparent 50%),
+                radial-gradient(at 80% 75%, hsla(180, 85%, 43%, 0.86) 0px, transparent 50%);
   box-shadow: 1px 1px 20px #f0f0f87b;
   border-radius: 35px;
   margin: 30px;
@@ -21,7 +23,8 @@
   bottom: 0px;
   right: 250px;
   width: 250px;
-  background-color: #878CED;
+  background-color: #04a8b1;
+  box-shadow: 1px 1px 20px #003434 inset;
   border-top-left-radius: 200px;
   border-top-right-radius: 200px;
   z-index: 0;
@@ -29,7 +32,7 @@
 .resume-title {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 3rem;
-  color: #f1f2f2;
+  color: #013535;
 }
 .span-resume {
   color: #0008aa;
@@ -37,7 +40,7 @@
 .resume-subtitle {
   font-size: 1.22rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #f1f2f2;
+    color: #3a3a3a;
 }
 
 .resume-templates {
