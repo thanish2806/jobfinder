@@ -19,8 +19,8 @@ const Home = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false); // simulate data loading
-    }, 1000); // you can adjust the timeout
+      setLoading(false); 
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);

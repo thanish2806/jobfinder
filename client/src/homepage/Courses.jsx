@@ -71,50 +71,52 @@ const Courses = () => {
     <div className="courses-container">
       <div className="courses-title-container">
         <h1 className="courses-title">
-          <span className="title-explore">Explore </span>courses{" "}
+          Continue Learning
         </h1>
-        <h1 className="courses-description">
+        {/* <h1 className="courses-description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum
           quos magni illum ad voluptas dolorem libero iure. Praesentium magnam
           corrupti molestiae deleniti nihil, doloremque nemo ratione quae
           voluptates possimus?
-        </h1>
+        </h1> */}
       </div>
 
       <div className="our-courses-section">
         <div className="items-container">
           {courseData.map((course, index) => (
             <div className="home-course-card" key={index}>
-              <img src={course.img} className="image" alt={course.title} loading="lazy"/>
+              <img src={course.img} className="course-thumanail-image" alt={course.title} loading="lazy"/>
               {/* <p className="text">
                 {course.duration} | {course.level}
               </p> */}
               {/*<p className="name">{course.author}</p> */}
 
-              <h3 className="heading">{course.title}</h3>
-              <p className="paragraph">{course.description}</p>
-              <Link to={course.path} className="course-home-button">
-                <span className="hover-underline-animation">Get it Now</span>
-                <svg
-                  viewBox="0 0 46 16"
-                  height="10"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="arrow-horizontal"
-                >
-                  <path
-                    transform="translate(30)"
-                    d="M8,8L0,0V16Z"
-                    fill="currentColor"
-                  ></path>
-                  <rect
-                    height="2"
-                    transform="translate(0 7)"
+              <div className="course-description">
+                <h3 className="heading">{course.title}</h3>
+                <p className="paragraph">{course.description}</p>
+                <Link to={course.path} className="course-home-button">
+                  <span className="hover-underline-animation">Get it Now</span>
+                  <svg
+                    viewBox="0 0 46 16"
+                    height="10"
                     width="30"
-                    fill="currentColor"
-                  ></rect>
-                </svg>
-              </Link>
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="arrow-horizontal"
+                  >
+                    <path
+                      transform="translate(30)"
+                      d="M8,8L0,0V16Z"
+                      fill="currentColor"
+                    ></path>
+                    <rect
+                      height="2"
+                      transform="translate(0 7)"
+                      width="30"
+                      fill="currentColor"
+                    ></rect>
+                  </svg>
+                </Link>
+              </div>
             </div>
           ))}
         </div>

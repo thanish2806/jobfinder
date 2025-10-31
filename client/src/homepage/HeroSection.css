@@ -39,16 +39,23 @@
 .title-02{
   padding: 0 50px;
 }
+.title-explore {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
 .hero-title {
   width: 100%;
   padding: 0 30px;
 }
 .hero-title h1{
   font-size: 4rem;
-
-    font-family: Be Vietnam Pro, SemiBold, sans-serif;
-  /* 1. Apply the Gradient as a Background */
-  background-image: linear-gradient(90deg, #0099ff, #00baba); 
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  background-image: linear-gradient(90deg, #109cbb, #68666476); 
 
   /* 2. Clip the Background to the Text */
   -webkit-background-clip: text;
