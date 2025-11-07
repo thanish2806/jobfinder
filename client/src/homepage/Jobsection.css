@@ -25,3 +25,68 @@
   color: #555;
   margin-bottom: 30px;
 }
+.joblist-container{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.joblist-card-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+.joblist-card{
+  max-width: 400px;
+  background: #39f0fa;
+  background: linear-gradient(154deg, rgba(24, 189, 244, 0.468) 0%, rgb(255, 255, 255) 100%);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.178);
+  width: calc(33.333% - 20px);
+}
+.joblist-card:hover{
+  text-decoration: none;
+  box-shadow: 1px 2px 50px rgba(0, 0, 0, 0.184);
+  transform: scale(1.01);
+}
+.joblist-card h3,p{
+  color: #262626;
+  margin: 7px 0 ;
+}
+.joblist-card h3{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.joblist-card p{
+  margin-top: 10px;
+  color: #262626;
+  text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+}
+.joblist-card a{
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #13ecec;
+  color: #023838;
+  text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 15px;
+   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.282);
+
+}
+.joblist-card a:hover{
+  text-decoration: none;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.282);
+  transform: scale(1.01);
+}

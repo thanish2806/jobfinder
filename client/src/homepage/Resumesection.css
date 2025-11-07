@@ -8,10 +8,8 @@
   flex-direction: column;
   padding: 50px;
   gap: 30px;
-  background-image:
-                radial-gradient(at 20% 25%, hsla(181, 85%, 75%, 0.781) 0px, transparent 50%),
-                radial-gradient(at 80% 75%, hsla(180, 85%, 43%, 0.86) 0px, transparent 50%);
-  box-shadow: 1px 1px 20px #f0f0f87b;
+  background-image: radial-gradient(at 20% 25%, hsla(181, 85%, 75%, 0.781) 0px, transparent 50%);
+  box-shadow: 1px 1px 20px #5f5f5f41;
   border-radius: 35px;
   margin: 30px;
   overflow: hidden;
