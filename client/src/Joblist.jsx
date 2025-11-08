@@ -30,7 +30,7 @@ const JobList = () => {
   try {
     const params = {
       query: query || "developer",
-      location: location !== "All" ? location : "chicago",
+      location: location !== "All" ? location : "",
       page: currentPage,
       country: "us",
       date_posted: datePosted,
