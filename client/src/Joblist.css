@@ -1,5 +1,5 @@
 /* Container wrapping whole job list section */
-.joblist-container {
+.joblist-container-main {
   max-width: 1500px;
   margin: 0 auto;
   padding: 20px;

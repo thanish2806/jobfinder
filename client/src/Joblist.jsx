@@ -107,7 +107,7 @@ const JobList = () => {
         <Loader />
       ) : (
         <>
-          <div className="joblist-container">
+          <div className="joblist-container-main">
             {/* Title Section */}
             <div className="title-filters">
               <h1 className="joblist-title">
