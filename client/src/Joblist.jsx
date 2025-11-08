@@ -150,7 +150,7 @@ const JobList = () => {
                 ) : (
                   <div className="joblist-grid">
                     {filteredJobs.map((job, index) => (
-                      <div key={index} className="joblist-card">
+                      <div key={index} className="joblist-card-main">
                         <h3>{job.title}</h3>
                         <p>
                           <strong>Company:</strong> {job.company_name}
