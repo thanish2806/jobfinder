@@ -35,9 +35,12 @@ const Home = () => {
         <Courses />
         <Resume />
         <Jobsection />
-        <button className="chat-icon" onClick={toggleChat}>
+        <div className="chat-icon" onClick={toggleChat}>
+          <div className="chat-note">
+            <p>Help ?</p>
+          </div>
           <MessageCircle size={28} />
-        </button>
+        </div>
         <div className={`chat-container ${showChat ? "visible" : ""}`}>
           <Chat />
         </div>
