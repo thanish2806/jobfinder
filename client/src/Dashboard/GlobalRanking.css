@@ -1,4 +1,4 @@
-.ranking-main{
+.ranking-main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
 
 .ranking-container {
   max-width: 350px;
-  margin: 0 auto;
+  height: fit-content;
   background: transparent;
   background-color: transparent;
   border-radius: 12px;
@@ -23,17 +23,18 @@
   font-weight: 600;
   color: #464647df;
 }
-
+.rank-table {
+  overflow-y: auto; /* Vertical scroll */
+}
 .ranking-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  
+  overflow-y: auto;
 }
 
 .ranking-table th,
 .ranking-table td {
-  
   padding: 8px 0px;
   text-align: center;
   font-size: 14px;
@@ -43,6 +44,7 @@
   background: #f9f9f9;
   font-weight: 600;
   color: #555;
+  position: sticky;
 }
 
 .ranking-table td {
@@ -54,24 +56,7 @@
   font-weight: bold;
   border-left: 3px solid #3b7cff;
 }
-.scrollable-table {
-  max-height: 250px; 
-  overflow-y: auto;
-}
-
-.scrollable-table::-webkit-scrollbar {
-  width: 6px;
-}
-
-.scrollable-table::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 10px;
-}
-
-.scrollable-table::-webkit-scrollbar-track {
-  background: transparent;
-}
-.test-yourself{
+.test-yourself {
   align-items: center;
   max-width: 330px;
 }

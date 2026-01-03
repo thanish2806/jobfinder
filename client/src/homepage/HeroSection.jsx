@@ -43,7 +43,7 @@ function HeroSection() {
   };
 
   return (
-    <section className="hero">
+    <div className="hero">
       <Navbar />
       <div className="hero-section-bg "></div>
       <div className="hero-content">
@@ -75,7 +75,7 @@ function HeroSection() {
       </div>
 
       
-    </section>
+    </div>
   );
 }
 

@@ -53,7 +53,6 @@ const GlobalRanking = () => {
       <div className="ranking-container">
         <h2>Global Leaderboard</h2>
         <div className="rank-table">
-          <div className="rank-table scrollable-table">
             <table className="ranking-table">
               <thead>
                 <tr>
@@ -85,7 +84,6 @@ const GlobalRanking = () => {
               </tbody>
             </table>
           </div>
-        </div>
       </div>
 
       <button className="test-yourself" onClick={handlequiz}>
