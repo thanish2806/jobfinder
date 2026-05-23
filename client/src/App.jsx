@@ -1,11 +1,32 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
+import Loader from "./components/Loader";
+import OfflineStatusHandler from "./components/OfflineStatusHandler";
+import ProtectedRoute from "./ProtectedRoute";
 
 import ErrorPage from "./components/ErrorPage";
 
 // All your route imports
 import Login from "./Login";
 import Signup from "./Signup";
+
+const RootRoute = () => {
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (loading) return <Loader />;
+  return user ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />;
+};
 import Home from "./homepage/home";
 import Dashboard from "./Dashboard/Dasnboard";
 import CoursesHome from "./Coursespage/CoursesHome";
@@ -54,16 +75,17 @@ const App = () => {
 
   return (
     <Router>
+      <OfflineStatusHandler />
       <Routes>
         {/* Auth */}
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<RootRoute />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
         {/* Dashboard & Jobs */}
         <Route path="/home" element={<Home />} />
         <Route path="/jobs" element={<JobList />} />
-        <Route path="/profile" element={<Dashboard />} />
+        <Route path="/profile" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
 
         {/* Courses */}
         <Route path="/courses" element={<CoursesHome />} />
@@ -102,17 +124,17 @@ const App = () => {
         <Route path="/mcq" element={<Mcq />} />
 
         {/* Resume */}
-        <Route path="/resume" element={<LandingPage />} />
-        <Route element={<ResumeLayout />}>
+        <Route path="/resume" element={<ProtectedRoute><LandingPage /></ProtectedRoute>} />
+        <Route element={<ProtectedRoute><ResumeLayout /></ProtectedRoute>}>
           <Route path="/resume-profile" element={<Profile />} />
           <Route path="/resume-education" element={<Education />} />
           <Route path="/resume-projects" element={<Projects />} />
           <Route path="/resume-experience" element={<Experience />} />
           <Route path="/resume-extraDetails" element={<ExtraDetails />} />
         </Route>
-        <Route path="/resume-templates" element={<Templates />} />
-        <Route path="/resume/1" element={<Template1 />} />
-        <Route path="/resume/2" element={<Template2 />} />
+        <Route path="/resume-templates" element={<ProtectedRoute><Templates /></ProtectedRoute>} />
+        <Route path="/resume/1" element={<ProtectedRoute><Template1 /></ProtectedRoute>} />
+        <Route path="/resume/2" element={<ProtectedRoute><Template2 /></ProtectedRoute>} />
 
         {/* Catch-All for 404 */}
         <Route path="*" element={<ErrorPage />} />

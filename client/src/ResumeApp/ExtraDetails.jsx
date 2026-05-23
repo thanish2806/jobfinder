@@ -8,8 +8,7 @@ import {
   InputAdornment,
   TextField,
   Typography,
-  Button,
-  Box,
+  Snackbar,
 } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import InterestsIcon from "@mui/icons-material/Interests";
@@ -19,10 +18,9 @@ import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 
 const ExtraDetails = () => {
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [extraDetails, setExtraDetails] = useState(() => {
     // Load from localStorage on initial state
     const storedDetails = JSON.parse(localStorage.getItem("extraDetailsData"));
@@ -127,7 +125,6 @@ const ExtraDetails = () => {
 
   return (
     <div style={containerStyle}>
-      <Navbar />
       <Card>
         <CardHeader
           title={
@@ -645,7 +642,10 @@ const ExtraDetails = () => {
             color: "black",
             "&:hover": { backgroundColor: "var(--btnHover)" },
           }}
-          
+          onClick={() => {
+            localStorage.setItem("extraDetailsData", JSON.stringify(extraDetails));
+            setSnackbarOpen(true);
+          }}
         >
           Save Your Data
         </Button>
@@ -663,7 +663,13 @@ const ExtraDetails = () => {
           </Link>
         </Grid>
       </Grid>
-      <Footer />
+
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={() => setSnackbarOpen(false)}
+        message="Extra details saved successfully!"
+      />
     </div>
   );
 };

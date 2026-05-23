@@ -49,7 +49,10 @@ const RecommendedJobs = () => {
   // Step 2: Match skills to job roles and fetch jobs
   useEffect(() => {
     const fetchRecommendedJobs = async () => {
-      if (!userSkills.length) return;
+      if (!userSkills.length) {
+        setLoading(false);
+        return;
+      }
 
       const matchedRoles = new Set();
       userSkills.forEach((skill) => {
@@ -63,7 +66,8 @@ const RecommendedJobs = () => {
       }
 
       try {
-        const res = await axios.get("/api/jobs", {
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || "";
+        const res = await axios.get(`${backendUrl}/api/jobs`, {
           params: {
             query: Array.from(matchedRoles).join(","),
             location: "remote",
@@ -71,11 +75,8 @@ const RecommendedJobs = () => {
           },
         });
 
-        // Simulate 2-second loader
-        setTimeout(() => {
-          setRecommendedJobs(res.data.jobs || []);
-          setLoading(false);
-        }, 2000);
+        setRecommendedJobs(res.data.jobs || []);
+        setLoading(false);
       } catch (err) {
         console.error("❌ Failed to fetch recommended jobs:", err.message);
         setLoading(false);

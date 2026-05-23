@@ -19,21 +19,32 @@ const getXP = (level = 1, correctAnswers = 0) => {
 function analyzePerformance(attempts) {
   if (!attempts.length) return null;
 
-  const total = attempts.length;
-  const totalScore = attempts.reduce((sum, a) => sum + a.score, 0);
-  const totalQuestions = attempts.reduce((sum, a) => sum + a.totalQuestions, 0);
+  // Group attempts by quizId and keep the one with the highest score
+  const bestAttempts = {};
+  for (const a of attempts) {
+    const qId = a.quizId;
+    if (!bestAttempts[qId] || a.score > bestAttempts[qId].score) {
+      bestAttempts[qId] = a;
+    }
+  }
+
+  const uniqueAttempts = Object.values(bestAttempts);
+
+  const total = uniqueAttempts.length;
+  const totalScore = uniqueAttempts.reduce((sum, a) => sum + a.score, 0);
+  const totalQuestions = uniqueAttempts.reduce((sum, a) => sum + a.totalQuestions, 0);
   const avgPercentage = totalQuestions
     ? ((totalScore / totalQuestions) * 100).toFixed(2)
     : 0;
   const highestScore = Math.max(
-    ...attempts.map((a) => a.highestScore || a.score),
+    ...uniqueAttempts.map((a) => a.highestScore || a.score),
     0
   );
 
   let totalXP = 0;
   const domainStats = {};
 
-  for (const a of attempts) {
+  for (const a of uniqueAttempts) {
     const level = a.level || 1;
     const score = a.score || 0;
     totalXP += getXP(level, score);

@@ -17,8 +17,7 @@ import GradeIcon from "@mui/icons-material/Grade";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+
 
 const Education = () => {
   const [education, setEducation] = useState({
@@ -98,7 +97,6 @@ const Education = () => {
 
   return (
     <div style={containerStyle}>
-      <Navbar />
       <Card>
         <CardHeader
           title={
@@ -661,7 +659,6 @@ const Education = () => {
           </Link>
         </Grid>
       </Grid>
-      <Footer />
     </div>
   );
 };

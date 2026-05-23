@@ -8,7 +8,7 @@ const quizSchema = new mongoose.Schema({
 }, { versionKey: false });
 
 const getQuizModel = (collectionName) => {
-  return mongoose.model(collectionName, quizSchema, collectionName);
+  return mongoose.models[collectionName] || mongoose.model(collectionName, quizSchema, collectionName);
 };
 
 export default getQuizModel;

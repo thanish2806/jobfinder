@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 import "./Chatbot.css";
 
-const socket = io(import.meta.env.VITE_BACKEND_URL, {
-  transports: ["websocket"],
-  withCredentials: true,
-});
 function Chat() {
   const [input, setInput] = useState("");
   const [chat, setChat] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
+  const socketRef = useRef(null);
 
   useEffect(() => {
+    const socket = io(import.meta.env.VITE_BACKEND_URL, {
+      transports: ["websocket"],
+      withCredentials: true,
+    });
+    socketRef.current = socket;
+
     const handleBotReply = (message) => {
       setChat((prev) => [...prev, { sender: "bot", text: message }]);
       setIsTyping(false);
@@ -21,6 +24,7 @@ function Chat() {
 
     return () => {
       socket.off("botReply", handleBotReply);
+      socket.disconnect();
     };
   }, []);
 
@@ -30,15 +34,16 @@ function Chat() {
       chatBody.scrollTop = chatBody.scrollHeight;
     }
   }, [chat]);
+
   const sendMessage = () => {
-    if (input.trim() !== "") {
+    if (input.trim() !== "" && socketRef.current) {
       const message = input;
       setChat((prev) => [...prev, { sender: "user", text: message }]);
       setInput("");
       setIsTyping(true); // ✅ Show typing indicator immediately
 
       // Emit the message to the server
-      socket.emit("userMessage", message);
+      socketRef.current.emit("userMessage", message);
     }
   };
   return (

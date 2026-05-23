@@ -19,8 +19,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+
 
 const Projects = () => {
   const [projects, setProjects] = useState(() => {
@@ -79,10 +78,7 @@ const Projects = () => {
   );
 
   return (
-    <div>
-      <Navbar />
-
-      <div style={containerStyle}>
+    <div style={containerStyle}>
         <Card>
           <CardHeader
             title={
@@ -282,8 +278,6 @@ const Projects = () => {
           </Grid>
         </Grid>
       </div>
-      <Footer />
-    </div>
   );
 };
 

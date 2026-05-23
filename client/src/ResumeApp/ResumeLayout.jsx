@@ -6,25 +6,29 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function ResumeLayout() {
-    const customStyle = {
-        margin: "10px",
-        height: "auto",
-        width: "80%",
-        padding: "20px",
-        backgroundColor: "#fff",
-    };
-    const containerStyle = {
-        marginTop: "30",
-        display: "flex",
-        justifyContent: "center",
-    };
     return (
-        <Box style={containerStyle}>
-            <Paper elevation={3} style={customStyle}>
-                <Outlet />
-            </Paper>
-        </Box>
-    )
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#f8fafc' }}>
+            <Navbar />
+            <Box style={{ flex: 1, display: 'flex', justifyContent: 'center', padding: '20px' }}>
+                <Paper 
+                    elevation={3} 
+                    style={{ 
+                        margin: "10px 0", 
+                        height: "auto", 
+                        width: "90%", 
+                        maxWidth: "1000px", 
+                        padding: "30px", 
+                        backgroundColor: "#fff",
+                        borderRadius: "12px",
+                        boxShadow: "0 10px 25px rgba(0, 0, 0, 0.05)"
+                    }}
+                >
+                    <Outlet />
+                </Paper>
+            </Box>
+            <Footer />
+        </div>
+    );
 }
 
 

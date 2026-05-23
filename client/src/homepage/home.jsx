@@ -11,40 +11,28 @@ import Loader from "../components/Loader"; // <-- Import Loader
 
 const Home = () => {
   const [showChat, setShowChat] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   const toggleChat = () => {
     setShowChat(!showChat);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false); 
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) return <Loader />;
-
   return (
     <div className="home-container">
-     
-      <div className="home-container">
-        <HeroSection />
-        <Courses />
-        <Resume />
-        <Jobsection />
-        <div className="chat-icon" onClick={toggleChat}>
-          <div className="chat-note">
-            <p>Help ?</p>
-          </div>
-          <MessageCircle size={28} />
+      <HeroSection />
+      <Courses />
+      <Resume />
+      <Jobsection />
+      <div className="chat-icon" onClick={toggleChat}>
+        <div className="chat-note">
+          <p>Help ?</p>
         </div>
-        <div className={`chat-container ${showChat ? "visible" : ""}`}>
+        <MessageCircle size={28} />
+      </div>
+      {showChat && (
+        <div className="chat-container visible">
           <Chat />
         </div>
-      </div>
+      )}
       <Footer />
     </div>
   );

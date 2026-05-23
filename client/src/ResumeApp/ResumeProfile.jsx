@@ -20,8 +20,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 
 const Profile = () => {
   const [profile, setProfile] = useState(() => {
@@ -68,7 +67,6 @@ const Profile = () => {
 
   return (
     <div style={containerStyle}>
-      <Navbar />
       <Card>
         <CardHeader
           title={
@@ -343,7 +341,6 @@ const Profile = () => {
         onClose={() => setOpen(false)}
         message="Profile saved successfully!"
       />
-      <Footer />
     </div>
   );
 };

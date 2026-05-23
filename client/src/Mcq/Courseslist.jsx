@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LazyImage from "../components/LazyImage";
 import "./CoursesList.css";
 
 // Images
@@ -54,14 +55,11 @@ const CoursesList = () => {
   );
 
   return (
-    <div className="mcq-courses-container ">
+    <div className="mcq-courses-container">
       <div
         className={`mcq-sub-container-01 ${selectedCourse ? "blurred" : ""}`}
       >
-        <div
-          className="mcq-title-searchbar"
-          onClick={() => setSelectedCourse(null)}
-        >
+        <div className="mcq-title-searchbar">
           <h1 className="mcq-title">
             MCQ
             <span className="title-latest"> Practice </span> Zone
@@ -69,7 +67,7 @@ const CoursesList = () => {
           <div className="search-bar">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search courses..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -77,23 +75,23 @@ const CoursesList = () => {
         </div>
         <div className="mcq-courses-grid">
           {filteredCourses.length === 0 ? (
-            <p>No course found.</p>
+            <p className="no-courses-found">No courses found.</p>
           ) : (
             filteredCourses.map((course, idx) => (
               <div className="mcq-course-card" key={idx}>
-                <img
-                  src={course.img}
-                  alt={course.name}
-                  className="course-img"
-                />
+                <div className="course-img-container">
+                  <LazyImage
+                    src={course.img}
+                    alt={course.name}
+                    className="course-img"
+                  />
+                </div>
                 <h2>{course.name}</h2>
                 <button
                   onClick={() => {
                     if (course.name === "Problems") {
-                      // Navigate directly to problems page
                       navigate("/mcq/problems");
                     } else {
-                      // Open level select popup for other courses
                       setSelectedCourse(course);
                     }
                   }}
@@ -108,25 +106,27 @@ const CoursesList = () => {
 
       {selectedCourse && (
         <>
+          <div className="popup-backdrop" onClick={() => setSelectedCourse(null)} />
           <div className="popup">
             <h2>{selectedCourse.name} - Select Level</h2>
-            <div className="popup-sub-01">
-              <button
-                className="close-btn"
-                onClick={() => setSelectedCourse(null)}
-              >
-                &times;
-              </button>
+            <button
+              className="close-btn"
+              onClick={() => setSelectedCourse(null)}
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+            <div className="popup-levels">
+              {levels.map((level, index) => (
+                <div key={index} className="quiz-level">
+                  <button
+                    onClick={() => navigate(`${selectedCourse.name}/${level.no}`)}
+                  >
+                    <span>{level.level} Level</span>
+                  </button>
+                </div>
+              ))}
             </div>
-            {levels.map((level, index) => (
-              <div key={index} className="quiz-level">
-                <button
-                  onClick={() => navigate(`${selectedCourse.name}/${level.no}`)}
-                >
-                  <span>{level.level} Level</span>
-                </button>
-              </div>
-            ))}
           </div>
         </>
       )}

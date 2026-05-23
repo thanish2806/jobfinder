@@ -39,7 +39,7 @@ const Templates = () => {
               width={"280px"}
               height={"380px"}
             />
-            <p onClick={() => handleResumeClick(1)}>Use Template</p>
+            <p onClick={(e) => { e.stopPropagation(); handleResumeClick(1); }}>Use Template</p>
           </div>
           <div onClick={() => handleTemplateClick(resume2)}>
             <img
@@ -49,7 +49,7 @@ const Templates = () => {
               width={"280px"}
               height={"380px"}
             />
-            <p onClick={() => handleResumeClick(2)}>Use Template</p>
+            <p onClick={(e) => { e.stopPropagation(); handleResumeClick(2); }}>Use Template</p>
           </div>
         </div>
         {selectedTemplate && (

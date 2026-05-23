@@ -17,8 +17,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+
 
 const Experience = () => {
   const [experiences, setExperiences] = useState(() => {
@@ -80,7 +79,6 @@ const Experience = () => {
 
   return (
     <div style={containerStyle}>
-      <Navbar />
       <Card>
         <CardHeader
           title={
@@ -258,7 +256,6 @@ const Experience = () => {
           </Link>
         </Grid>
       </Grid>
-      <Footer />
     </div>
   );
 };
