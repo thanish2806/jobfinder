@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion as Motion } from "framer-motion";
+import image from "../assets/loading-loading-forever.gif";
 import { useParams } from "react-router-dom";
 import { Pie } from "react-chartjs-2";
 import "./Quizque.css";
@@ -7,7 +8,6 @@ import "./Quizque.css";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import GoBackButton from "../components/GoBackButton";
-import UniqueLoader from "../components/UniqueLoader";
 
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { auth, db } from "../firebase";
@@ -267,7 +267,14 @@ function Quizque() {
             )}
           </>
         ) : (
-          <UniqueLoader message={`Loading ${course ? course.toUpperCase() : "Quiz"} Questions...`} />
+          <Motion.img
+            src={image}
+            alt="loading"
+            width="100px"
+            className="quizque-loading-img"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          />
         )}
       </Motion.div>
     </Motion.div>

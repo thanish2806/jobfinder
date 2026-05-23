@@ -5,7 +5,6 @@ import { collection, getDocs } from "firebase/firestore";
 import Problem from "./Problem";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import UniqueLoader from "../components/UniqueLoader";
 
 const ProblemList = () => {
   const [problems, setProblems] = useState([]);
@@ -68,40 +67,27 @@ const ProblemList = () => {
     fetchProblems();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="problemlist-page">
-        <Navbar />
-        <UniqueLoader message="Loading coding challenges..." />
-        <Footer />
-      </div>
-    );
-  }
+  if (loading) return <p style={{ padding: "20px" }}>Loading...</p>;
 
   return (
-    <div className="problemlist-page">
+    <div>
       <Navbar />
-      <div className="problemlist-container">
-        <h1 className="problemlist-title">Coding Playground</h1>
-        <p className="problemlist-subtitle">
-          Solve programming challenges, run custom test cases, and level up your skills.
-        </p>
-        <div className="problems-grid">
-          {problems.length > 0 ? (
-            problems.map((problem) => (
-              <Problem
-                key={problem.id}
-                id={problem.id}
-                title={problem.title}
-                difficulty={problem.difficulty}
-                category={problem.category}
-                isCompleted={submittedProblems.has(problem.id)}
-              />
-            ))
-          ) : (
-            <p className="no-problems">No problems found.</p>
-          )}
-        </div>
+      <div style={{ padding: "20px" }}>
+        <h1>All Problems</h1>
+        {problems.length > 0 ? (
+          problems.map((problem) => (
+            <Problem
+              key={problem.id}
+              id={problem.id}
+              title={problem.title}
+              difficulty={problem.difficulty}
+              category={problem.category}
+              isCompleted={submittedProblems.has(problem.id)}
+            />
+          ))
+        ) : (
+          <p>No problems found.</p>
+        )}
       </div>
       <Footer />
     </div>
