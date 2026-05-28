@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HeroSection from "./HeroSection";
 import Courses from "./Courses";
 import Chat from "../Chatbot";
@@ -7,7 +7,7 @@ import { MessageCircle } from "lucide-react";
 import "./Home.css";
 import Footer from "../components/Footer";
 import Jobsection from "./Jobsection";
-import Loader from "../components/Loader"; // <-- Import Loader
+import Loader from "../components/Loader"; 
 
 const Home = () => {
   const [showChat, setShowChat] = useState(false);
