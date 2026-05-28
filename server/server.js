@@ -84,7 +84,7 @@ io.on('connection', (socket) => {
       {
         role: 'system',
         content: `
-          You are an expert math tutor also give tips for job search and preparation.
+          You are an expert math and friendly tutor also give tips for job search and preparation.
           Always explain aptitude and math problems clearly in numbered steps.
           Use plain English and simple arithmetic. Avoid LaTeX or math symbols.
           End with the final answer in **bold** using **Answer: ...** format.
@@ -97,27 +97,46 @@ io.on('connection', (socket) => {
       },
     ];
 
-    try {
-      const response = await axios.post(
-        'https://openrouter.ai/api/v1/chat/completions',
-        {
-          model: 'qwen/qwen2.5-vl-72b-instruct:free',
-          messages: prompt,
-        },
-        {
-          headers: {
-            'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-            'Content-Type': 'application/json',
-            'HTTP-Referer': process.env.FRONTEND_URL,
-            'X-Title': 'Qwen Chatbot',
-          },
-        }
-      );
+    // Attempt to get a reply using a robust fallback list of models to handle rate/spend limits
+    let reply = null;
+    let success = false;
+    const models = [
+      'qwen/qwen3-next-80b-a3b-instruct:free',
+      'qwen/qwen3-coder:free',
+      'openrouter/free'
+    ];
 
-      const reply = response.data.choices?.[0]?.message?.content || 'No reply received.';
+    for (const model of models) {
+      try {
+        const response = await axios.post(
+          'https://openrouter.ai/api/v1/chat/completions',
+          {
+            model: model,
+            messages: prompt,
+          },
+          {
+            headers: {
+              'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+              'Content-Type': 'application/json',
+              'HTTP-Referer': process.env.FRONTEND_URL || 'http://localhost:5173',
+              'X-Title': 'Qwen Chatbot',
+            },
+          }
+        );
+        reply = response.data.choices?.[0]?.message?.content;
+        if (reply) {
+          success = true;
+          console.log(`✅ Chatbot replied using model: ${model}`);
+          break;
+        }
+      } catch (err) {
+        console.error(`❌ Chatbot error for model ${model}:`, err.response?.data || err.message);
+      }
+    }
+
+    if (success && reply) {
       socket.emit('botReply', reply);
-    } catch (error) {
-      console.error('❌ Chatbot error:', error.response?.data || error.message);
+    } else {
       socket.emit('botReply', 'Sorry, something went wrong while contacting the AI.');
     }
   });

@@ -24,7 +24,7 @@ const Home = () => {
       <Jobsection />
       <div className="chat-icon" onClick={toggleChat}>
         <div className="chat-note">
-          <p>Help ?</p>
+          <p>Assistant</p>
         </div>
         <MessageCircle size={28} />
       </div>
