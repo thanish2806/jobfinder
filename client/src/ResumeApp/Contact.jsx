@@ -6,7 +6,9 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
-import { Call, MailOutline, LinkedIn } from "@mui/icons-material";
+import Call from "@mui/icons-material/Call";
+import MailOutline from "@mui/icons-material/MailOutline";
+import LinkedIn from "@mui/icons-material/LinkedIn";
 import Navbar from "../components/Navbar";
 
 const Contact = () => {

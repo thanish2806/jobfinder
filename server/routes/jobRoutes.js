@@ -11,7 +11,7 @@ router.get('/jobs', async (req, res) => {
     query = 'developer jobs',        // Can be comma-separated list of roles
     location = 'chicago',
     page = 1,
-    country = 'us',
+    country,
     date_posted = 'all',
     skills = '',                     // Comma-separated skills
   } = req.query;
@@ -26,7 +26,7 @@ router.get('/jobs', async (req, res) => {
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean);
 
-  const cacheKey = `${queries.join(',')}-${location}-${page}-${country}-${date_posted}-${skills}`;
+  const cacheKey = `${queries.join(',')}-${location}-${page}-${country || ''}-${date_posted}-${skills}`;
   if (cache.has(cacheKey)) {
     console.log(`⚡ [CACHE HIT] /jobs → ${cacheKey}`);
     return res.json(cache.get(cacheKey));
@@ -36,14 +36,19 @@ router.get('/jobs', async (req, res) => {
     let allJobs = [];
 
     for (const q of queries) {
+      const apiParams = {
+        query: `${q} in ${location}`,
+        page,
+        num_pages: 1,
+        date_posted,
+      };
+
+      if (country) {
+        apiParams.country = country;
+      }
+
       const response = await axios.get('https://jsearch.p.rapidapi.com/search', {
-        params: {
-          query: `${q} in ${location}`,
-          page,
-          num_pages: 1,
-          country,
-          date_posted,
-        },
+        params: apiParams,
         headers: {
           'x-rapidapi-key': process.env.RAPIDAPI_KEY,
           'x-rapidapi-host': 'jsearch.p.rapidapi.com',
