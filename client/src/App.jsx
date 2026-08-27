@@ -88,7 +88,7 @@ const App = () => {
         <Route path="/profile" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
 
         {/* Courses */}
-        <Route path="/courses" element={<CoursesHome />} />
+        {/* <Route path="/courses" element={<CoursesHome />} /> */}
         <Route path="/html-css" element={<Htmlcss />} />
         <Route
           path="/javascriptessentials"
